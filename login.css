@@ -6,8 +6,7 @@
     font-optical-sizing: auto;
     font-weight: <300>;
     font-style: normal;
-    font-variation-settings:
-      "wdth" 100;
+    font-variation-settings: "width" 100;
 }
 
 body{
@@ -15,7 +14,7 @@ body{
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: url("https://img.goodfon.com/wallpaper/big/6/b6/fraktaly-kompiuternaia-grafika-vodovorot-svechenie-fractals.webp") center;
+    background: url("https://img.freepik.com/fotos-gratis/banner-de-folha-monstera-tropical-neon_53876-138943.jpg?t=st=1743120143~exp=1743123743~hmac=399ebe501f0851738a57be7202faaa237521d065a338d99f3f7eb2c25428335e&w=1380") center;
 }
 
 .wrapper{
