@@ -4,12 +4,12 @@
 *{
     font-family: "Open Sans", sans-serif;
     font-optical-sizing: auto;
-    font-weight: <300>;
+    font-weight: 300;
     font-style: normal;
     font-variation-settings: "width" 100;
 }
 
-body{
+.corpo{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -17,7 +17,7 @@ body{
     background: url("https://img.freepik.com/fotos-gratis/banner-de-folha-monstera-tropical-neon_53876-138943.jpg?t=st=1743120143~exp=1743123743~hmac=399ebe501f0851738a57be7202faaa237521d065a338d99f3f7eb2c25428335e&w=1380") center;
 }
 
-.wrapper{
+.wrapper{   
     width: 420px;
     background-color: transparent;
     color: antiquewhite;
@@ -66,28 +66,25 @@ body{
 
 .wrapper remember-forgot{
     display: flex;
-    justify-content: space-between;
-    font-size: 14px;
-    margin: 15px, 0, 15px;
+    flex-direction: row;
 }
 
 .remember-forgot label input{
+    margin-top: 20px;
+    margin-bottom: 15px;
     accent-color: #fff;
-    margin-right: 3px;
-    display: inline-block;
-    margin-right: 20px
+    margin-right: 6px;
+    margin-left: 10px;
 
 }
 
 .remember-forgot a{
+    margin-left: 145px;
+    align-self:flex-end;
     color: #fff;
     text-decoration: none;
-    display: inline-block;
-   
 }
-.remember-forgot a :hover{
-    text-decoration: underline;
-}
+
 
 .wrapper .btn{
     width: 100%;
@@ -103,12 +100,31 @@ body{
     font-size: 600;
 }
 
-.wrapper register-link{
-    font-size: 16px;
-    text-align: center;
-    margin-top: 20px;
+.register-link{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
 }
 
-.register-link p a{
-    background-color: #fff;
+.register-link a{
+    align-self: center;
+    margin-right: 35px;
+    color: #fff;
+}
+
+.register-link p{
+   margin-left: 25px;
+}
+
+.titulo{
+    display: flex;
+    background-color: rebeccapurple;
+    justify-content: center;
+    
+}
+
+.titulo h1{
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 4px 4px 4px #333;
 }
