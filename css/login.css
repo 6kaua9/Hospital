@@ -1,0 +1,130 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap');
+
+
+*{
+    font-family: "Open Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 300;
+    font-style: normal;
+    font-variation-settings: "width" 100;
+}
+
+.corpo{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url("https://img.freepik.com/fotos-gratis/banner-de-folha-monstera-tropical-neon_53876-138943.jpg?t=st=1743120143~exp=1743123743~hmac=399ebe501f0851738a57be7202faaa237521d065a338d99f3f7eb2c25428335e&w=1380") center;
+}
+
+.wrapper{   
+    width: 420px;
+    background-color: transparent;
+    color: antiquewhite;
+    border-radius: 10px;
+    backface-visibility: 50%;
+    border-color: #fff;
+    border: 1px solid;
+}
+
+.wrapper h1{
+    font-size: 36px;
+    text-align: center
+}
+
+.wrapper .input-box{
+    position: relative;
+    width: 100;
+    height: 50px;
+    margin: 300px, 0;
+}
+
+.input-box input{
+    width: 99%;
+    height: 100%;
+    background: transparent;
+    border: none;
+    outline: none;
+    border: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 40px;
+    font-size: 16px;
+    color: #fff;
+    padding: 20px, 45px, 20px, 20px;
+}
+
+.input-box input::placeholder{
+    color: #fff;
+}
+
+.input-box i{
+    position: absolute;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+}
+
+.wrapper remember-forgot{
+    display: flex;
+    flex-direction: row;
+}
+
+.remember-forgot label input{
+    margin-top: 20px;
+    margin-bottom: 15px;
+    accent-color: #fff;
+    margin-right: 6px;
+    margin-left: 10px;
+
+}
+
+.remember-forgot a{
+    margin-left: 145px;
+    align-self:flex-end;
+    color: #fff;
+    text-decoration: none;
+}
+
+
+.wrapper .btn{
+    width: 100%;
+    height: 45px;
+    background: #fff;
+    border: none;
+    outline: none;
+    border-radius: 40px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, .1);
+    cursor: pointer;
+    font-size: 16px;
+    color: #333;
+    font-size: 600;
+}
+
+.register-link{
+    display: flex;
+    flex-direction: row;
+    justify-content:space-evenly;
+}
+
+.register-link a{
+    align-self: center;
+    margin-right: 35px;
+    color: #fff;
+}
+
+.register-link p{
+   margin-left: 25px;
+}
+
+.titulo{
+    display: flex;
+    background-color: rebeccapurple;
+    justify-content: center;
+    
+}
+
+.titulo h1{
+    font-weight: bold;
+    color: #fff;
+    text-shadow: 4px 4px 4px #333;
+}
