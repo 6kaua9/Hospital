@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .adicionarTask{
+    align-content:center;
+    text-align: center;
+    border: 2px solid black;
+    border-radius: 20px;
+    width: 180px;
+    height: 30px;
+    color: white;
+    background-color: #144272;
+}
+
+.adicionarTask:hover{
+    box-shadow: 0px 8px 16px black;
+}
+
+.adicionarC:hover{
+    box-shadow: 0px 8px 16px black;
+}
+
+.task{
+    display:block;
+    border: 2px solid black;
+    background-color: #406fa1 ;
+    color: white;
+    width: 200px;
+    height: 100px;
+    margin-bottom: 15px;
+}
+
+.taskHead{
+    border-bottom: 2px solid black;
+    background-color: #144272;
+    color: aliceblue;
+}
+
+.taskBody{
+    padding: 5px;
+    margin-top: 5px;
+    
+}
+
+.deleteTask{
+    background-color: #ff0000;
+    color: white;
+    align-items:center;
+    float: right;
+}
+
+</style>
+<body>
+    <div class="task">
+            <div class="taskHead" contenteditable="true">
+            Task 1
+            <span class="deleteTask" onclick="removerTask(this)">X</span>
+            </div>
+            <div class="taskBody" contenteditable="true">
+                Descrição da task 1
+            </div>
+    </div>
+    </div>
+    <div class="adicionarTask" id="teste" onclick="adicionarTask()">
+        Adicionar Task
+     </div>
+
+     <script>
+
+        function adicionarTask(){
+            const novaTask = document.createElement('div');
+            novaTask.className = 'task';
+            novaTask.innerHTML = `
+                <div class="taskHead" contenteditable="true" oninput="saveData()">Nova Task
+                    <span class="deleteTask" onclick="removerTask(this)">X</span>
+                </div>
+                <div class="taskBody" contenteditable="true">Descrição da nova task</div>
+            `;
+            document.getElementById('teste').insertAdjacentElement('beforebegin', novaTask);
+
+            saveData();
+        }
+
+
+        function removerTask(element) {
+        // Remove a task correspondente
+        const task = element.closest('.task');
+        task.remove();
+
+        // Atualiza o localStorage
+        saveData();
+    }
+
+
+        function saveData() {
+        // Seleciona todas as tasks existentes
+        const tasks = document.querySelectorAll('.task');
+        const taskData = [];
+
+        // Itera sobre as tasks e coleta os dados
+        tasks.forEach(task => {
+            const taskHead = task.querySelector('.taskHead');
+            const taskBody = task.querySelector('.taskBody').innerText;
+            // Remove temporariamente o botão "X" para salvar apenas o texto
+            const deleteButton = taskHead.querySelector('.deleteTask');
+            if (deleteButton) deleteButton.remove();
+
+            const taskHeadText = taskHead.innerText.trim();
+
+            // Adiciona os dados da task ao array
+            taskData.push({ title: taskHeadText, description: taskBody });
+
+            // Reinsere o botão "X" no DOM
+            if (deleteButton) taskHead.appendChild(deleteButton);
+        });
+
+        // Salva os dados no localStorage
+        localStorage.setItem('tasks', JSON.stringify(taskData));
+    }
+
+    // Carrega as tasks salvas no localStorage ao carregar a página
+    window.onload = function () {
+        const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
+        savedTasks.forEach(task => {
+            const novaTask = document.createElement('div');
+            novaTask.className = 'task';
+            novaTask.innerHTML = `
+                <div class="taskHead" contenteditable="true">
+                    ${task.title}
+                    <span class="deleteTask" onclick="removerTask(this)">X</span>
+                </div>
+                <div class="taskBody" contenteditable="true">${task.description}</div>
+            `;
+            document.getElementById('teste').insertAdjacentElement('beforebegin', novaTask);
+        });
+    };
+    
+
+     </script>
+</body>
+
+</html>
