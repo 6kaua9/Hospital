@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+#paciente{
+    display: none;
+}
+
+</style>
+<body>
+    
+    
+    
+    <section id="Lista">
+    <ul id="listaCadastros"></ul>
+    </section>
+
+    <section id="paciente">
+        <h2>Detalhes do Paciente</h2>
+        <p id="detalhesPaciente"></p>
+        <button onclick="voltar()">Voltar</button>
+        <button onclick="editarDetalhes()">Editar</button>
+    </section>
+
+    <script>
+        let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
+        function renderizar() {
+            const ul = document.getElementById("listaCadastros");
+            ul.innerHTML = "";
+            cadastroPaciente.forEach((item, index) => {
+                const li = document.createElement("li");
+
+                // Cria um link clicável para cada item
+                const link = document.createElement("a");
+                link.href = `#`; // Pode ser alterado para redirecionar para outra página
+                link.textContent = `${item.nome} | ${item.documento} | ${item.idade} anos`;
+                link.onclick = () => exibirDetalhes(index); // Adiciona um evento de clique
+
+                li.appendChild(link);
+                ul.appendChild(li);
+            });
+        }
+
+        function exibirDetalhes(index) {
+            pacienteAtualIndex = index;
+            const paciente = cadastroPaciente[index];
+
+            // Preenche a seção "paciente" com os detalhes do paciente
+            const detalhes = `
+                <strong>Nome:</strong> <span id="nome">${paciente.nome}</span><br>
+                <strong>Documento:</strong> <span id="documento">${paciente.documento}</span><br>
+                <strong>Idade:</strong> <span id="idade">${paciente.idade}</span><br>
+                <strong>Endereço:</strong> <span id="endereco">${paciente.endereco}</span><br>
+                <strong>Plano:</strong> <span id="plano">${paciente.plano}</span><br>
+                <strong>Histórico:</strong> <span id="historico">${paciente.historico}</span><br>
+                <strong>Queixa:</strong> <span id="queixa">${paciente.queixa}</span>
+            `;
+            document.getElementById("detalhesPaciente").innerHTML = detalhes;
+
+            // Esconde a seção "Lista" e mostra a seção "paciente"
+            document.getElementById("Lista").style.display = "none";
+            document.getElementById("paciente").style.display = "block";
+        }
+
+        function editarDetalhes() {
+            const paciente = cadastroPaciente[pacienteAtualIndex];
+
+            // Transforma os detalhes em campos editáveis
+            const detalhes = `
+                <strong>Nome:</strong> <input id="editNome" value="${paciente.nome}"><br>
+                <strong>Documento:</strong> <input id="editDocumento" value="${paciente.documento}"><br>
+                <strong>Idade:</strong> <input id="editIdade" type="number" value="${paciente.idade}"><br>
+                <strong>Endereço:</strong> <input id="editEndereco" value="${paciente.endereco}"><br>
+                <strong>Plano:</strong> <select id="editPlano">
+                <option value="SUS">SUS</option>
+                <option value="planoDeSaude">Plano de saude</option></select><br>
+                <strong>Histórico:</strong> <textarea id="editHistorico">${paciente.historico}</textarea><br>
+                <strong>Queixa:</strong> <textarea id="editQueixa">${paciente.queixa}</textarea><br>
+                <button onclick="salvarEdicao()">Salvar</button>
+            `;
+            document.getElementById("detalhesPaciente").innerHTML = detalhes;
+        }
+
+        function salvarEdicao() {
+            // Atualiza os dados do paciente com os valores editados
+            cadastroPaciente[pacienteAtualIndex] = {
+                nome: document.getElementById("editNome").value,
+                documento: document.getElementById("editDocumento").value,
+                idade: document.getElementById("editIdade").value,
+                endereco: document.getElementById("editEndereco").value,
+                plano: document.getElementById("editPlano").value,
+                historico: document.getElementById("editHistorico").value,
+                queixa: document.getElementById("editQueixa").value,
+            };
+
+            // Salva os dados atualizados no localStorage
+            localStorage.setItem("cadastros", JSON.stringify(cadastroPaciente));
+
+            // Reexibe os detalhes atualizados
+            exibirDetalhes(pacienteAtualIndex);
+        }
+
+        function voltar() {
+            // Mostra a seção "Lista" e esconde a seção "paciente"
+            document.getElementById("Lista").style.display = "block";
+            document.getElementById("paciente").style.display = "none";
+        }
+
+        window.onload = renderizar;
+    </script>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .planoSaude{
+        display: none;
+    }
+
+    .responsavel{
+        display:none;
+    }
+</style>
+<body>
+<section id="">
+    <form id="regristroPaciente">
+        <label>Nome:</label>
+        <input type="text" id="nome" placeholder="nome" required>
+
+        <label>RG ou CPF:</label>
+        <input type="number" id="documento" placeholder="RG ou CPF" required>
+
+        <label>Idade:</label>
+        <input type="number" id="idade" placeholder="idade" required>
+
+        <label class="responsavel">Nome do responsavel:
+            <input type="text" id="nomeResponsavel" placeholder="nome do responsavel">
+        </label>
+
+        <label>Endereço:</label>
+        <input type="text" id="endereço" placeholder="endereço">
+
+        <label>Planos de saude:</label>
+        <select id="planos">
+            <option value="SUS">SUS</option>
+            <option value="planoDeSaude">Plano de saude</option>
+          </select>
+
+        <label class="planoSaude">
+            Nome do plano:
+            <input type="text" id="nomePlano" placeholder="nome do Plano">
+            Numero do plano
+            <input type="number" id="numeroPlano" placeholder="numero do plano"> 
+        </label>
+
+        <label>Historico Hospitalar:</label>
+        <textarea id="historico"></textarea>
+
+        <label>Queixa Hospitalar</label>
+        <textarea id="queixa"></textarea>
+
+          
+
+        <button type="button" onclick="salvar()">Salvar</button>
+    </form>
+<a id="listaCadastros">
+</section>
+<script>
+    document.getElementById("idade").addEventListener("change", function(){
+        const idade = this.value;
+        const responsavel = document.getElementsByClassName("responsavel")[0];
+
+        if(idade < 18){
+            responsavel.style.display="block";
+        } else{
+            responsavel.style.display="none";
+        }
+
+    })
+    document.getElementById("planos").addEventListener("change", function(){
+        const planos = this.value;
+        const planoSaude = document.getElementsByClassName("planoSaude")[0];
+
+        if(planos === "planoDeSaude"){
+        planoSaude.style.display="block";
+        } else{
+            planoSaude.style.display="none";
+        }
+    })
+let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros")) || [];
+
+function salvar(){
+    const nome = document.getElementById("nome").value;
+    const documento = document.getElementById("documento").value;
+    const idade = document.getElementById("idade").value;
+    const responsavel = document.getElementById("nomeResponsavel").value;
+    const endereço= document.getElementById("endereço").value;
+    const plano= document.getElementById("planos").value;
+    const nomePlano = document.getElementById("nomePlano").value;
+    const numeroPlano = document.getElementById("numeroPlano").value;
+    const historico= document.getElementById("historico").value;
+    const queixa= document.getElementById("queixa").value;
+
+      if (nome && documento && idade) {
+        cadastroPaciente.push({ nome, documento, idade, responsavel, endereço, plano, nomePlano, numeroPlano, historico, queixa });
+        localStorage.setItem("cadastros", JSON.stringify(cadastroPaciente));
+      }
+      renderizar();
+}
+
+function renderizar() {
+      const ul = document.getElementById("listaCadastros");
+      ul.innerHTML = "";
+      cadastroPaciente.forEach((item) => {
+        const li = document.createElement("li");
+        li.textContent = `${item.nome} | ${item.documento} | ${item.idade} anos | `;
+        ul.appendChild(li);
+      });
+    }
+
+    window.onload = renderizar;
+</script>
+</body>
+
+</html>
