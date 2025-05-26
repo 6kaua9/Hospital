@@ -38,18 +38,21 @@ form {
     gap: 10px;
     width: 100%;
     margin-bottom: 10px;
+    align-items: flex-end;
 }
 .campo {
     flex: 1 1 0;
     min-width: 120px;
     display: flex;
     flex-direction: column;
+    margin-bottom: 0;
 }
 
 #documento {
     width: 300px;
     padding: 10px;
     margin:  10px 0;
+
     border: 1px solid  #ccc;
     border-radius: 5px;
     font-size: 16px;
@@ -64,7 +67,7 @@ form {
 }
 
 #idade {
-    width: 300px;
+    width: 200px;
     padding: 10px;
     margin:  10px 0;
     border: 1px solid  #ccc;
@@ -78,6 +81,28 @@ form {
     border-color: #007BFF;
     box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
     outline: none;
+}
+
+
+#nomeResponsavel {
+    max-width: 300px;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+}
+
+#nomeResponsavel:focus {
+    border-color: #007BFF;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+    outline: none;
+}
+
+.responsavel {
+    display: none;
 }
 
 #endereco {
