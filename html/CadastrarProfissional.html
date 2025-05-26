@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Profissional</title>
+    <link rel="stylesheet" href="../css/CadastrarProfissional.css">
+</head>
+<body>
+    <form id="regristroProfissional">
+        <h2>Cadastro de Profissional</h2>
+        <div class="linha1">
+            <div class="campo">
+                <label>Nome:</label>
+                <input type="text" id="nome" placeholder="nome">
+            </div>
+            <div class="campo">
+                <label>RG ou CPF:</label>
+                <input type="number" id="documento" placeholder="RG ou CPF">
+            </div>
+            <div class="campo">
+                <label>Idade:</label>
+                <input type="number" id="idade" placeholder="idade">
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label>Rua:</label>
+                <input type="text" id="rua" placeholder="Rua">
+            </div>
+            <div class="campo">
+                <label>Nº Rua:</label>
+                <input type="text" id="numeroRua" placeholder="Número">
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label>Bairro:</label>
+                <input type="text" id="bairro" placeholder="Bairro">
+            </div>
+            <div class="campo">
+                <label>Cidade:</label>
+                <input type="text" id="cidade" placeholder="Cidade">
+            </div>
+            <div class="campo">
+                <label>Estado:</label>
+                <input type="text" id="estado" placeholder="Estado">
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label>Telefone:</label>
+                <input type="text" id="Telefone" placeholder="numero de Telefone">
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label>Função:</label>
+                <select id="funçao">
+                    <option value="medico">Medico(a)</option>
+                    <option value="enfermeiro">Enfermeiro(a)</option>
+                </select>
+            </div>
+            <div class="campo">
+                <label>Matricula:</label>
+                <input type="text" id="matricula" placeholder="matricula">
+            </div>
+            <div class="campo">
+                <label>Cargo:</label>
+                <input type="text" id="cargo" placeholder="cargo">
+            </div>
+        </div>
+        <button type="button" onclick="salvar()">Salvar</button>
+    </form>
+    <a id="listaProfissionais"></a>
+    <script src="../javascript/CadastrarProfissional.js"></script>
+</body>
+</html>
