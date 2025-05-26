@@ -1,0 +1,179 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f6f8fa;
+    margin: 0;
+    padding: 0;
+}
+
+header {
+    background: #fff;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding-bottom: 16px;
+    margin-bottom: 32px;
+}
+
+.header-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 24px 32px 0 32px;
+}
+
+h1 {
+    color: #1a73e8;
+    font-size: 2.2rem;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.user-icon {
+    font-size: 1.3rem;
+    color: #333;
+    background: #e3eafc;
+    border-radius: 10%;
+    padding: 8px 16px;
+    font-weight: 500;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.06);
+}
+
+.slogan {
+    text-align: center;
+    color: #2d3a4b;
+    font-size: 1.1rem;
+    margin: 8px 0 0 0;
+    letter-spacing: 0.5px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: center;
+    gap: 18px;
+    margin-top: 18px;
+    flex-wrap: wrap;
+}
+
+.navbar button {
+    background: #e3eafc;
+    color: #1a73e8;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s, color 0.2s;
+}
+
+.navbar button:hover {
+    background: #1a73e8;
+    color: #fff;
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 60vh;
+}
+
+.actions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+    margin-top: 32px;
+    justify-content: center;
+}
+
+.action-card {
+    background: #fff;
+    border: 2px solid #e3eafc;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    padding: 36px 38px;
+    font-size: 1.25rem;
+    color: #1a73e8;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.2s, border 0.2s, transform 0.15s;
+    min-width: 220px;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    justify-content: center;
+}
+
+.action-card:hover {
+    background: #e3eafc;
+    border: 2px solid #1a73e8;
+    color: #174ea6;
+    transform: scale(1.04);
+}
+
+.popup-pacientes {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.popup-content {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.15);
+    padding: 36px 48px 28px 48px;
+    min-width: 320px;
+    min-height: 120px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+}
+.popup-content h3 {
+    margin-top: 0;
+    color: #1a73e8;
+    margin-bottom: 18px;
+    font-size: 1.3rem;
+}
+.popup-content button {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 12px 28px;
+    font-size: 1.08rem;
+    cursor: pointer;
+    margin: 10px 0;
+    width: 220px;
+    transition: background 0.2s;
+}
+.popup-content button:hover {
+    background: #174ea6;
+}
+.close-popup {
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    font-size: 1.6rem;
+    color: #888;
+    cursor: pointer;
+    font-weight: bold;
+    transition: color 0.2s;
+}
+.close-popup:hover {
+    color: #1a73e8;
+}
+
+.popup-profissionais {
+    position: fixed;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background: rgba(0,0,0,0.25);
+    z-index: 1000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

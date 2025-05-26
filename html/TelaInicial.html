@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema Hospitalar</title>
+    <link rel="stylesheet" href="../css/TelaInicial.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>🏥 Sistema Hospitalar</h1>
+            <span class="user-icon">👤 Usuário logado</span>
+        </div>
+        <p class="slogan">Gerencie internações com facilidade e segurança</p>
+        <nav class="navbar">
+            <button>Início</button>
+            <button id="btnProfissionais">Profissionais</button>
+            <button id="btnPacientes">Pacientes</button>
+            <button>Internações</button>
+            <button>Alas</button>
+            <button>Relatórios</button>
+            <button>Configurações</button>
+        </nav>
+    </header>
+    <main>
+        <div class="actions">
+            <button class="action-card" onclick="window.location.href='../html/CadastrarPaciente.html'">🩺 Cadastrar Paciente</button>
+            <button class="action-card" onclick="window.location.href='#'">📝 Registrar Internação</button>
+            <button class="action-card" onclick="window.location.href='#'">🏨 Visualizar Alas</button>
+            <button class="action-card" onclick="window.location.href='#'">📊 Gerar Relatórios</button>
+        </div>
+    </main>
+    <div id="popupPacientes" class="popup-pacientes" style="display:none;">
+        <div class="popup-content">
+            <h3>Pacientes</h3>
+            <button onclick="window.location.href='CadastrarPaciente.html'">Cadastrar Paciente</button>
+            <button onclick="window.location.href='ExibeCadastroPaciente.html'">Ver Pacientes Cadastrados</button>
+            <span class="close-popup" onclick="fecharPopupPacientes()">&times;</span>
+        </div>
+    </div>
+    <div id="popupProfissionais" class="popup-profissionais" style="display:none;">
+        <div class="popup-content">
+            <h3>Profissionais</h3>
+            <button onclick="window.location.href='CadastrarProfissional.html'">Cadastrar Profissional</button>
+            <button onclick="window.location.href='ExibeCadastroProfissional.html'">Ver Profissionais Cadastrados</button>
+            <span class="close-popup" onclick="fecharPopupProfissionais()">&times;</span>
+        </div>
+    </div>
+    <script src="../javascript/TelaInicial.js"></script>
+    <script>
+        document.getElementById('btnPacientes').onclick = function() {
+            document.getElementById('popupPacientes').style.display = 'block';
+        };
+        function fecharPopupPacientes() {
+            document.getElementById('popupPacientes').style.display = 'none';
+        }
+        document.getElementById('btnProfissionais').onclick = function() {
+            document.getElementById('popupProfissionais').style.display = 'block';
+        };
+        function fecharPopupProfissionais() {
+            document.getElementById('popupProfissionais').style.display = 'none';
+        }
+        window.onclick = function(event) {
+            const popupPac = document.getElementById('popupPacientes');
+            const popupProf = document.getElementById('popupProfissionais');
+            if (event.target === popupPac) {
+                popupPac.style.display = 'none';
+            }
+            if (event.target === popupProf) {
+                popupProf.style.display = 'none';
+            }
+        };
+    </script>
+</body>
+</html>
