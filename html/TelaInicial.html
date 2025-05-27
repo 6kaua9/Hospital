@@ -7,21 +7,7 @@
     <link rel="stylesheet" href="../css/TelaInicial.css">
 </head>
 <body>
-    <header>
-        <div class="header-content">
-            <h1>🏥 Sistema Hospitalar</h1>
-            <span class="user-icon">👤 Usuário logado</span>
-        </div>
-        <p class="slogan">Gerencie internações com facilidade e segurança</p>
-        <nav class="navbar">
-            <button>Início</button>
-            <button id="btnProfissionais">Profissionais</button>
-            <button id="btnPacientes">Pacientes</button>
-            <button>Internações</button>
-            <button>Alas</button>
-            <button>Relatórios</button>
-            <button>Configurações</button>
-        </nav>
+    <header id="navbar">
     </header>
     <main>
         <div class="actions">
@@ -49,6 +35,11 @@
     </div>
     <script src="../javascript/TelaInicial.js"></script>
     <script>
+        fetch('../html/navbar.html')
+        .then(response => response.text())
+        .then(data => document.getElementById('navbar').innerHTML = data);
+
+        
         document.getElementById('btnPacientes').onclick = function() {
             document.getElementById('popupPacientes').style.display = 'block';
         };

@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", function() {
+    fetch('../html/navbar.html')
+        .then(response => response.text())
+        .then(data => {
+            document.getElementById('navbar').innerHTML = data;
+        });
+});
+
 let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || [];
 let profissionalAtualIndex = null;
 
