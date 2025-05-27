@@ -1,10 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('../html/navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar').innerHTML = data;
-        });
-});
+
 
 let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
         function renderizar() {
