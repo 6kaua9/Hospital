@@ -1,10 +1,4 @@
-document.addEventListener("DOMContentLoaded", function() {
-    fetch('../html/navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar').innerHTML = data;
-        });
-});
+
 document.getElementById("idade").addEventListener("change", function(){
         const idade = this.value;
         const responsavel = document.getElementsByClassName("responsavel")[0];

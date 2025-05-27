@@ -12,3 +12,20 @@
         <button>Relatórios</button>
         <button>Configurações</button>
     </nav>
+       <div id="popupPacientes" class="popup-pacientes" style="display:none;">
+        <div class="popup-content">
+            <h3>Pacientes</h3>
+            <button onclick="window.location.href='CadastrarPaciente.html'">Cadastrar Paciente</button>
+            <button onclick="window.location.href='ExibeCadastroPaciente.html'">Ver Pacientes Cadastrados</button>
+            <span class="close-popup" onclick="fecharPopupPacientes()">&times;</span>
+        </div>
+    </div>
+    <div id="popupProfissionais" class="popup-profissionais" style="display:none;">
+        <div class="popup-content">
+            <h3>Profissionais</h3>
+            <button onclick="window.location.href='CadastrarProfissional.html'">Cadastrar Profissional</button>
+            <button onclick="window.location.href='ExibeCadastroProfissional.html'">Ver Profissionais Cadastrados</button>
+            <span class="close-popup" onclick="fecharPopupProfissionais()">&times;</span>
+        </div>
+    </div>
+        
