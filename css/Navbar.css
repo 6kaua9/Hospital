@@ -1,0 +1,88 @@
+.header-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #1976d2;
+    color: #fff;
+    padding: 16px 32px;
+    border-radius: 8px 8px 0 0;
+}
+
+.user-icon {
+ font-size: 1.1em;
+ background: #1565c0;
+ padding: 8px 16px;
+ border-radius: 20px;
+}
+
+.slogan {
+    margin: 0;
+    padding: 8px 32px;
+    background: #e3f2fd;
+    color: #1976d2;
+    font-weight: 500;
+}
+
+.navbar {
+    display: flex;
+    gap: 16px;
+    background: #2196f3;
+    padding: 12px 32px;
+    border-radius: 0 0 8px 8px;
+}
+
+.navbar button {
+    background: #fff;
+    color: #1976d2;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 6px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background 0.2s, color 0.2s;
+}
+
+.navbar button:hover {
+    background: #1976d2;
+    color: #fff;
+}
+
+.popup-pacientes, .popup-professionais {
+    position: fixed;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, 0);
+    background: #fff;
+    border: 2px solid #1976d2;
+    border-radius: 8px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
+    z-index: 1000;
+    min-width: 320px;
+}
+
+.popup-content h3 {
+    margin-top: 0;
+    color: #1976d2;
+}
+
+.popup-content button {
+    background: #1976d2;
+    color: #fff;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-bottom: 8px;
+}
+
+.popup-content button:hover {
+    background: #1565c0;
+}
+
+.close-popup {
+    align-self: flex-end;
+    font-size: 1.5em;
+    color: #1976d2;
+    cursor: pointer;
+    margin-top: 8px;
+}
