@@ -1,0 +1,78 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f6f8fa;
+    margin: 0;
+    padding: 0;
+}
+
+section {
+    background: #fff;
+    margin: 40px auto;
+    padding: 32px 24px;
+    border-radius: 12px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+    max-width: 500px;
+}
+
+h2 {
+    color: #2d3a4b;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    letter-spacing: 1px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.linha {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+.campo {
+    flex: 1 1 0;
+    min-width: 120px;
+    display: flex;
+    flex-direction: column;
+}
+label {
+    color: #2d3a4b;
+    margin-bottom: 4px;
+    font-size: 1.05rem;
+    letter-spacing: 0.5px;
+    margin-top: 10px;
+}
+input[type="text"], input[type="number"], select {
+    width: 95%;
+    padding: 8px 10px;
+    margin: 6px 0 16px 0;
+    border: 1px solid #cfd8dc;
+    border-radius: 5px;
+    font-size: 1rem;
+    background: #f9fafb;
+    transition: border 0.2s;
+}
+input[type="text"]:focus, input[type="number"]:focus, select:focus {
+    border: 1.5px solid #1a73e8;
+    outline: none;
+    background: #fff;
+}
+button {
+    background: #1a73e8;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 10px 22px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background 0.2s;
+    margin-top: 8px;
+}
+button:hover {
+    background: #174ea6;
+}
