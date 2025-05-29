@@ -10,6 +10,9 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('btnProfissionais').onclick = function() {
                 document.getElementById('popupProfissionais').style.display = 'block';
             };
+            document.getElementById('btnAlas').onclick = function() {
+                document.getElementById('popupAlas').style.display = 'block';
+            };
 
             window.fecharPopupPacientes = function() {
                 document.getElementById('popupPacientes').style.display = 'none';
@@ -17,15 +20,22 @@ document.addEventListener("DOMContentLoaded", function() {
             window.fecharPopupProfissionais = function() {
                 document.getElementById('popupProfissionais').style.display = 'none';
             };
+            window.fecharPopupAlas = function() {
+                document.getElementById('popupAlas').style.display = 'none';
+            };
 
             window.onclick = function(event) {
                 const popupPac = document.getElementById('popupPacientes');
                 const popupProf = document.getElementById('popupProfissionais');
+                const popupAlas = document.getElementById('popupAlas');
                 if (event.target === popupPac) {
                     popupPac.style.display = 'none';
                 }
                 if (event.target === popupProf) {
                     popupProf.style.display = 'none';
+                }
+                if (event.target === popupAlas) {
+                    popupAlas.style.display = 'none';
                 }
             };
         });

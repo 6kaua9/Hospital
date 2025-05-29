@@ -2,8 +2,8 @@
     <link rel="stylesheet" href="../css/Navbar.css">
 </head>
     <div class="header-content">
-    <h1>🏥 Sistema Hospitalar</h1>
-    <span class="user-icon">👤 Usuário logado</span>
+        <h1>🏥 Sistema Hospitalar</h1>
+        <span class="user-icon">👤 Usuário logado</span>
     </div>
     <p class="slogan">Gerencie internações com facilidade e segurança</p>
     <nav class="navbar">
@@ -11,7 +11,7 @@
         <button id="btnProfissionais">Profissionais</button>
         <button id="btnPacientes">Pacientes</button>
         <button>Internações</button>
-        <button>Alas</button>
+        <button id="btnAlas">Alas</button>
         <button>Relatórios</button>
         <button>Configurações</button>
     </nav>
@@ -29,6 +29,14 @@
             <button onclick="window.location.href='CadastrarProfissional.html'">Cadastrar Profissional</button>
             <button onclick="window.location.href='ExibeCadastroProfissional.html'">Ver Profissionais Cadastrados</button>
             <span class="close-popup" onclick="fecharPopupProfissionais()">&times;</span>
+        </div>
+    </div>
+    <div id="popupAlas" class="popup-alas" style="display:none;">
+        <div class="popup-content">
+            <h3>Alas</h3>
+            <button onclick="window.location.href='CadastrarAlas.html'">Cadastrar Alas</button>
+            <button onclick="window.location.href='ExibeAlas.html'">Ver Alas Cadastradas</button>
+            <span class="close-popup" onclick="fecharPopupAlas()">&times;</span>
         </div>
     </div>
         
