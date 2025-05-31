@@ -9,54 +9,13 @@
 <body>
     <header id="navbar">
     </header>
-    <main>
         <div class="actions">
             <button class="action-card" onclick="window.location.href='../html/CadastrarPaciente.html'">🩺 Cadastrar Paciente</button>
-            <button class="action-card" onclick="window.location.href='#'">📝 Registrar Internação</button>
-            <button class="action-card" onclick="window.location.href='#'">🏨 Visualizar Alas</button>
+            <button class="action-card" onclick="window.location.href='CadastrarInternacao.html'">📝 Registrar Internação</button>
+            <button class="action-card" onclick="window.location.href='ExibeAlas.html'">🏨 Visualizar Alas</button>
             <button class="action-card" onclick="window.location.href='#'">📊 Gerar Relatórios</button>
         </div>
-    </main>
-    <script src="../javascript/TelaInicial.js"></script>
-    <script>
-    document.addEventListener("DOMContentLoaded", function() {
-    fetch('../html/navbar.html')
-        .then(response => response.text())
-        .then(data => {
-            document.getElementById('navbar').innerHTML = data;
 
-            document.getElementById('btnPacientes').onclick = function() {
-            document.getElementById('popupPacientes').style.display = 'block';
-        };
-        document.getElementById('btnProfissionais').onclick = function() {
-            document.getElementById('popupProfissionais').style.display = 'block';
-        };
-        });
-});
-
-        
-        document.getElementById('btnPacientes').onclick = function() {
-            document.getElementById('popupPacientes').style.display = 'block';
-        };
-        function fecharPopupPacientes() {
-            document.getElementById('popupPacientes').style.display = 'none';
-        }
-        document.getElementById('btnProfissionais').onclick = function() {
-            document.getElementById('popupProfissionais').style.display = 'block';
-        };
-        function fecharPopupProfissionais() {
-            document.getElementById('popupProfissionais').style.display = 'none';
-        }
-        window.onclick = function(event) {
-            const popupPac = document.getElementById('popupPacientes');
-            const popupProf = document.getElementById('popupProfissionais');
-            if (event.target === popupPac) {
-                popupPac.style.display = 'none';
-            }
-            if (event.target === popupProf) {
-                popupProf.style.display = 'none';
-            }
-        };
-    </script>
+    <script src="../javascript/callNavbar.js"></script>
 </body>
 </html>

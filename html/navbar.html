@@ -1,4 +1,4 @@
-    <head>
+<head>
     <link rel="stylesheet" href="../css/Navbar.css">
 </head>
     <div class="header-content">
@@ -10,7 +10,7 @@
         <button onclick="window.location.href='TelaInicial.html'">Início</button>
         <button id="btnProfissionais">Profissionais</button>
         <button id="btnPacientes">Pacientes</button>
-        <button>Internações</button>
+        <button id="btnInternacoes">Internações</button>
         <button id="btnAlas">Alas</button>
         <button>Relatórios</button>
         <button>Configurações</button>
@@ -38,5 +38,15 @@
             <button onclick="window.location.href='ExibeAlas.html'">Ver Alas Cadastradas</button>
             <span class="close-popup" onclick="fecharPopupAlas()">&times;</span>
         </div>
+    </div>   
+    <div id="popupInternacoes" class="popup-internacoes" style="display:none;">
+        <div class="popup-content">
+            <h3>Internações</h3>
+            <button onclick="window.location.href='CadastrarInternacao.html'">Registrar Internação</button>
+            <button onclick="window.location.href='ExibeInternacao.html'">Vizualizar Internações</button>
+            <span class="close-popup" onclick="fecharPopupInternacoes()">&times;</span>
+        </div>
     </div>
-        
+     <!---- Retirei popUps da telaInicial.html>
+
+    

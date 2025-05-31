@@ -13,6 +13,9 @@ document.addEventListener("DOMContentLoaded", function() {
             document.getElementById('btnAlas').onclick = function() {
                 document.getElementById('popupAlas').style.display = 'block';
             };
+            document.getElementById('btnInternacoes').onclick = function() {
+                document.getElementById('popupInternacoes').style.display = 'block';
+            };
 
             window.fecharPopupPacientes = function() {
                 document.getElementById('popupPacientes').style.display = 'none';
@@ -23,11 +26,15 @@ document.addEventListener("DOMContentLoaded", function() {
             window.fecharPopupAlas = function() {
                 document.getElementById('popupAlas').style.display = 'none';
             };
+            window.fecharPopupInternacoes = function() {
+                document.getElementById('popupInternacoes').style.display = 'none';
+            };
 
             window.onclick = function(event) {
                 const popupPac = document.getElementById('popupPacientes');
                 const popupProf = document.getElementById('popupProfissionais');
                 const popupAlas = document.getElementById('popupAlas');
+                const popupInt = document.getElementById('popupInternacoes');
                 if (event.target === popupPac) {
                     popupPac.style.display = 'none';
                 }
@@ -36,6 +43,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 }
                 if (event.target === popupAlas) {
                     popupAlas.style.display = 'none';
+                }
+                if (event.target === popupInt) {
+                    popupInt.style.display = 'none';
                 }
             };
         });
