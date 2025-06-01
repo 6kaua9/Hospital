@@ -1,0 +1,198 @@
+body {
+    background: linear-gradient(120deg, #e0e7ff 0%, #f8fafc 100%);
+    min-height: 100vh;
+    margin: 0;
+    font-family: 'Segoe UI', Arial, sans-serif;
+}
+.titulo {
+    text-align: center;
+    margin-top: 32px;
+    color: #2d3a4a;
+}
+.titulo-interna {
+    text-align: center;
+    color: #2563eb;
+    font-size: 1.45em;
+    font-weight: 700;
+    margin-bottom: 18px;
+    margin-top: 0;
+    letter-spacing: 0.5px;
+}
+.corpo {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 80vh;
+}
+.wrapper {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: 0 4px 24px rgba(44, 62, 80, 0.10);
+    padding: 40px 32px 32px 32px;
+    margin-top: 32px;
+    width: 100%;
+    max-width: 420px;
+}
+#formCadastroUsuario {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+.input-box {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    position: relative;
+}
+.input-box input,
+.input-box select {
+    padding: 10px 12px;
+    border: 1px solid #bfc9d9;
+    border-radius: 7px;
+    font-size: 1em;
+    background: #f5f7fa;
+    transition: border 0.2s;
+}
+.input-box input:focus,
+.input-box select:focus {
+    border: 1.5px solid #4f8cff;
+    outline: none;
+    background: #fff;
+}
+.btn {
+    background: linear-gradient(90deg, #4f8cff 0%, #6ee7b7 100%);
+    color: #fff;
+    border: none;
+    border-radius: 7px;
+    padding: 12px 0;
+    font-size: 1.08em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 10px;
+    transition: background 0.2s;
+}
+.btn:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
+}
+.register-link {
+    text-align: center;
+    margin-top: 10px;
+}
+.register-link a {
+    color: #4f8cff;
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+.register-link a:hover {
+    color: #2563eb;
+}
+#btnInfoNivel {
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1.2em;
+    padding: 0 6px;
+    color: #4f8cff;
+    margin-left: 4px;
+    align-self: flex-end;
+    transition: color 0.2s;
+}
+#btnInfoNivel:hover {
+    color: #2563eb;
+}
+#popupNivelInfo {
+    display: none;
+    position: absolute;
+    left: 0;
+    top: 110%;
+    background: #fff;
+    border: 1px solid #bfc9d9;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.13);
+    padding: 18px 18px 12px 18px;
+    z-index: 10;
+    width: 320px;
+    font-size: 0.98em;
+    color: #2d3a4a;
+}
+#popupNivelInfo strong {
+    color: #2563eb;
+}
+#popupNivelInfo ul {
+    margin: 8px 0 0 16px;
+    padding: 0;
+}
+#popupNivelInfo li {
+    margin-bottom: 4px;
+}
+.header-navbar {
+    width: 100%;
+    background: linear-gradient(90deg, #4f8cff 0%, #6ee7b7 100%);
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    padding: 0;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 20;
+}
+.header-navbar-content {
+    display: flex;
+    align-items: center;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 10px 24px;
+    gap: 18px;
+}
+.header-logo {
+    height: 38px;
+    width: 38px;
+    border-radius: 8px;
+    background: #fff;
+    object-fit: contain;
+    box-shadow: 0 1px 4px rgba(44, 62, 80, 0.10);
+}
+.header-title {
+    font-size: 1.35em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 4px rgba(44, 62, 80, 0.10);
+}
+
+.header-navbar {
+    width: 100%;
+    background: linear-gradient(90deg, #4f8cff 0%, #6ee7b7 100%);
+    box-shadow: 0 2px 8px rgba(44, 62, 80, 0.08);
+    padding: 0;
+    margin-bottom: 0;
+    position: relative;
+    z-index: 20;
+}
+.header-navbar-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 24px 0 18px 0;
+}
+.header-title-block {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+}
+.header-title {
+    font-size: 2em;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: 1px;
+    text-shadow: 0 1px 4px rgba(44, 62, 80, 0.10);
+    text-align: center;
+}
+.header-subtitle {
+    font-size: 1.08em;
+    color: #e0e7ff;
+    font-weight: 400;
+    text-align: center;
+    margin-top: 2px;
+}
