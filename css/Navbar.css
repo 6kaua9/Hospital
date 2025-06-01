@@ -1,88 +1,54 @@
-/*.header-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background: #1976d2;
-    color: #fff;
-    padding: 16px 32px;
-    border-radius: 8px 8px 0 0;
-}
-
-.user-icon {
- font-size: 1.1em;
- background: #1565c0;
- padding: 8px 16px;
- border-radius: 20px;
-}
-
-.slogan {
-    margin: 0;
-    padding: 8px 32px;
-    background: #e3f2fd;
-    color: #1976d2;
-    font-weight: 500;
-}
-
-.navbar {
-    display: flex;
-    gap: 16px;
-    background: #2196f3;
-    padding: 12px 32px;
-    border-radius: 0 0 8px 8px;
-}
-
-.navbar button {
+.popup-logoff {
     background: #fff;
-    color: #1976d2;
+    border: 1px solid #bfc9d9;
+    border-radius: 10px;
+    box-shadow: 0 2px 12px rgba(44, 62, 80, 0.13);
+    padding: 18px 24px 16px 24px;
+    min-width: 220px;
+    text-align: center;
+}
+
+.popup-content-logoff p {
+    margin: 0 0 12px 0;
+    color: #2d3a4a;
+    font-size: 1.08em;
+}
+
+.btn-logoff {
+    background: linear-gradient(90deg, #4f8cff 0%, #6ee7b7 100%);
+    color: #fff;
     border: none;
-    padding: 10px 20px;
-    border-radius: 6px;
+    border-radius: 7px;
+    padding: 8px 24px;
     font-size: 1em;
+    font-weight: 600;
     cursor: pointer;
-    transition: background 0.2s, color 0.2s;
+    margin-top: 6px;
+    transition: background 0.2s;
 }
 
-.navbar button:hover {
-    background: #1976d2;
-    color: #fff;
+.btn-logoff:hover {
+    background: linear-gradient(90deg, #2563eb 0%, #10b981 100%);
 }
 
-.popup-pacientes, .popup-professionais {
-    position: fixed;
-    top: 20%;
-    left: 50%;
-    transform: translate(-50%, 0);
-    background: #fff;
-    border: 2px solid #1976d2;
-    border-radius: 8px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.2);
-    z-index: 1000;
-    min-width: 320px;
-}
-
-.popup-content h3 {
-    margin-top: 0;
-    color: #1976d2;
-}
-
-.popup-content button {
-    background: #1976d2;
-    color: #fff;
-    border: none;
-    padding: 8px 16px;
-    border-radius: 6px;
+.close-popup-logoff {
+    position: absolute;
+    top: 8px;
+    right: 14px;
+    font-size: 1.3em;
+    color: #aaa;
     cursor: pointer;
-    margin-bottom: 8px;
+    font-weight: bold;
+    transition: color 0.2s;
 }
 
-.popup-content button:hover {
-    background: #1565c0;
+.close-popup-logoff:hover {
+    color: #e53e3e;
 }
 
-.close-popup {
-    align-self: flex-end;
-    font-size: 1.5em;
-    color: #1976d2;
-    cursor: pointer;
-    margin-top: 8px;
-}*/
+@media (max-width: 600px) {
+    .popup-logoff {
+        min-width: 140px;
+        padding: 12px 8px 12px 8px;
+    }
+}

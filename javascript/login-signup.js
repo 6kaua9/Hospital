@@ -1,5 +1,40 @@
-// Este script deve ser incluído na tela de cadastro de usuário
-// Exemplo de uso: <script src="../javascript/cadastroUsuario.js"></script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Cadastro de usuário
+    const formCadastro = document.getElementById('formCadastroUsuario');
+    if (formCadastro) {
+        formCadastro.onsubmit = function(e) {
+            e.preventDefault();
+            const dados = {
+                nome: document.getElementById('nome').value.trim(),
+                matricula: document.getElementById('matricula').value.trim(),
+                cargo: document.getElementById('cargo').value.trim(),
+                profissionalAssociado: document.getElementById('profissionalAssociado') ? document.getElementById('profissionalAssociado').value : null,
+                telefone: document.getElementById('telefone').value.trim(),
+                endereco: document.getElementById('endereco').value.trim(),
+                senha: document.getElementById('senha').value,
+                nivelAcesso: document.getElementById('nivelAcesso') ? document.getElementById('nivelAcesso').value : document.getElementById('nivel').value
+            };
+            if (cadastrarUsuario(dados)) {
+                formCadastro.reset();
+                setTimeout(() => {
+                    window.location.href = 'login.html';
+                }, 1200);
+            }
+        };
+    }
+    // Login
+    const formLogin = document.querySelector('form');
+    if (formLogin && formLogin.id !== 'formCadastroUsuario') {
+        formLogin.onsubmit = function(e) {
+            e.preventDefault();
+            const usuario = formLogin.querySelector('input[type="text"]').value.trim();
+            const senha = formLogin.querySelector('input[type="password"]').value;
+            if (login(usuario, senha)) {
+                window.location.href = '../html/TelaInicial.html';
+            }
+        };
+    }
+});
 
 document.addEventListener('DOMContentLoaded', function() {
     // Cria o admin padrão se não existir
@@ -64,10 +99,8 @@ function login(matricula, senha) {
     }
 }
 
-
-
 //pop up descrição niveis usuarios
-        document.addEventListener('DOMContentLoaded', function() {
+    /*    document.addEventListener('DOMContentLoaded', function() {
             const btnInfo = document.getElementById('btnInfoNivel');
             const popup = document.getElementById('popupNivelInfo');
             if(btnInfo && popup) {
@@ -101,4 +134,4 @@ function login(matricula, senha) {
                     }
                 });
             }
-});
+});*/

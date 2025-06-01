@@ -3,7 +3,7 @@
 </head>
     <div class="header-content">
         <h1>🏥 Sistema Hospitalar</h1>
-        <span class="user-icon">👤 Usuário logado</span>
+        <span class="user-icon" id="userIcon" style="cursor:pointer;">👤 Usuário logado</span>
     </div>
     <nav class="navbar">
         <button onclick="window.location.href='TelaInicial.html'">Início</button>
@@ -46,6 +46,13 @@
             <span class="close-popup" onclick="fecharPopupInternacoes()">&times;</span>
         </div>
     </div>
-     <!---- Retirei popUps da telaInicial.html>
 
-    
+    <!--Implementar ao clicar no icone do usuario-->
+    <div id="popupLogoff" class="popup-logoff" style="display:none; position: absolute; top: 60px; right: 32px; z-index: 100;">
+        <div class="popup-content-logoff">
+            <p>Deseja sair da conta?</p>
+            <button onclick="logoffUsuario()" class="btn-logoff">Sair</button>
+            <span class="close-popup-logoff" onclick="fecharPopupLogoff()">&times;</span>
+        </div>
+    </div>
+
