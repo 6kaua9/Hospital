@@ -43,6 +43,7 @@ document.addEventListener('DOMContentLoaded', function() {
         usuarios.push({
             nome: 'Administrador',
             matricula: 'admin',
+            nivelAcesso: 'admin',
             funcao: 'admin',
             cargo: 'Administrador',
             telefone: '',
@@ -90,7 +91,8 @@ function login(matricula, senha) {
             matricula: user.matricula,
             nome: user.nome,
             cargo: user.cargo,
-            funcao: user.funcao
+            nivelAcesso: user.nivelAcesso || '',
+            funcao: user.funcao || ''
         }));
         return true;
     } else {
@@ -100,7 +102,7 @@ function login(matricula, senha) {
 }
 
 //pop up descrição niveis usuarios
-    /*    document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             const btnInfo = document.getElementById('btnInfoNivel');
             const popup = document.getElementById('popupNivelInfo');
             if(btnInfo && popup) {
@@ -119,7 +121,7 @@ function login(matricula, senha) {
             if (selectProf) {
                 let profissionais = [];
                 try {
-                    profissionais = JSON.parse(localStorage.getItem('profissionais')) || [];
+                    profissionais = JSON.parse(localStorage.getItem('Profissionais')) || [];
                 } catch (e) { profissionais = []; }
                 // Corrige para aceitar diferentes formatos de objeto profissional
                 profissionais.forEach(function(prof) {
@@ -134,4 +136,4 @@ function login(matricula, senha) {
                     }
                 });
             }
-});*/
+});

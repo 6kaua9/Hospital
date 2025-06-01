@@ -3,7 +3,7 @@
 </head>
     <div class="header-content">
         <h1>🏥 Sistema Hospitalar</h1>
-        <span class="user-icon" id="userIcon" style="cursor:pointer;">👤 Usuário logado</span>
+        <span class="user-icon" id="userIcon" style="cursor:pointer;">👤 User Null</span>
     </div>
     <nav class="navbar">
         <button onclick="window.location.href='TelaInicial.html'">Início</button>
@@ -12,7 +12,7 @@
         <button id="btnInternacoes">Internações</button>
         <button id="btnAlas">Alas</button>
         <button>Relatórios</button>
-        <button>Configurações</button>
+        <button id="btnConfiguracoes">Configurações</button>
     </nav>
        <div id="popupPacientes" class="popup-pacientes" style="display:none;">
         <div class="popup-content">
@@ -47,12 +47,19 @@
         </div>
     </div>
 
-    <!--Implementar ao clicar no icone do usuario-->
-    <div id="popupLogoff" class="popup-logoff" style="display:none; position: absolute; top: 60px; right: 32px; z-index: 100;">
+    <div id="popupLogoff" class="popup-logoff" style="display:none;">
         <div class="popup-content-logoff">
             <p>Deseja sair da conta?</p>
             <button onclick="logoffUsuario()" class="btn-logoff">Sair</button>
             <span class="close-popup-logoff" onclick="fecharPopupLogoff()">&times;</span>
+        </div>
+    </div>
+    
+    <div id="popupConfiguracoes" class="popup-configuracoes" style="display:none; position: absolute; top: 60px; right: 32px; z-index: 100;">
+        <div class="popup-content-configuracoes">
+            <h3>Configurações</h3>
+            <button onclick="window.location.href='validarUsuarios.html'">Validar Usuários</button>
+            <span class="close-popup-configuracoes" onclick="fecharPopupConfiguracoes()">&times;</span>
         </div>
     </div>
 
