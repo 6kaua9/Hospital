@@ -27,7 +27,7 @@ function exibirDetalhes(index) {
     const detalhes = `
         <strong>Nome:</strong> <span>${profissional.nome}</span><br>
         <strong>Documento:</strong> <span>${profissional.documento}</span><br>
-        <strong>Idade:</strong> <span>${profissional.idade}</span><br>
+        <strong>Data de nascimento:</strong> <span>${profissional.idade}</span><br>
         <strong>Endereço:</strong> <span>${enderecoStr}</span><br>
         <strong>Telefone:</strong> <span>${profissional.telefone}</span><br>
         <strong>Função:</strong> <span>${profissional.funçao}</span><br>
@@ -52,7 +52,7 @@ function editarDetalhes() {
     const detalhes = `
         <strong>Nome:</strong> <input id="editNome" value="${profissional.nome}"><br>
         <strong>Documento:</strong> <input id="editDocumento" value="${profissional.documento}"><br>
-        <strong>Idade:</strong> <input id="editIdade" type="number" value="${profissional.idade}"><br>
+        <strong>Data de nascimento:</strong> <input id="editIdade" type="number" value="${profissional.idade}"><br>
         <strong>Rua:</strong> <input id="editRua" value="${rua}"><br>
         <strong>Nº Rua:</strong> <input id="editNumeroRua" value="${numeroRua}"><br>
         <strong>Bairro:</strong> <input id="editBairro" value="${bairro}"><br>
