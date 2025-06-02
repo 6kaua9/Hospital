@@ -1,4 +1,3 @@
-
 let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || [];
         function salvar(){
             const nome = document.getElementById("nome").value;
@@ -13,8 +12,13 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
             const telefone= document.getElementById("Telefone").value;
             const funçao = document.getElementById("funçao").value;
             const matricula= document.getElementById("matricula").value;
-            const cargo = document.getElementById("cargo").value;
-            if(nome && documento && idade && rua && numeroRua && bairro && cidade && estado && telefone && funçao && matricula && cargo){
+            if(funçao === 'medico' || funçao === 'enfermeiro') {
+                if(!matricula) {
+                    alert('Matrícula é obrigatória para médicos e enfermeiros!');
+                    return;
+                }
+            }
+            if(nome && documento && idade && rua && numeroRua && bairro && cidade && estado && telefone && funçao && (funçao === 'medico' || funçao === 'enfermeiro' ? matricula : true) && cargo){
                 cadastroProfissional.push({
                     nome,
                     documento,
@@ -28,7 +32,7 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
                     },
                     telefone,
                     funçao,
-                    matricula,
+                    matricula: (funçao === 'medico' || funçao === 'enfermeiro') ? matricula : 'Sem Matricula',
                     cargo
                 });
                 localStorage.setItem("Profissionais", JSON.stringify(cadastroProfissional));
@@ -51,3 +55,34 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
     }
 
     window.onload = renderizar;
+
+    // Restrições de acesso por nível de usuário
+    (function() {
+        document.addEventListener('DOMContentLoaded', function() {
+            const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+            // Apenas admin, medico, enfermeira_chefe podem acessar
+            const niveisPermitidos = ['admin', 'medico', 'enfermeira_chefe'];
+            if (!usuarioLogado || !niveisPermitidos.includes(usuarioLogado.nivelAcesso)) {
+                alert('Você não tem permissão para acessar esta página.');
+                window.location.href = 'TelaInicial.html';
+            }
+        });
+    })();
+
+    document.addEventListener('DOMContentLoaded', function() {
+        const selectFuncao = document.getElementById('funçao');
+        const campoMatricula = document.getElementById('matricula').parentElement;
+        function atualizarCampoMatricula() {
+            const valor = selectFuncao.value;
+            if (valor === 'medico' || valor === 'enfermeiro') {
+                campoMatricula.style.display = '';
+            } else {
+                campoMatricula.style.display = 'none';
+                document.getElementById('matricula').value = '';
+            }
+        }
+        if (selectFuncao && campoMatricula) {
+            atualizarCampoMatricula();
+            selectFuncao.addEventListener('change', atualizarCampoMatricula);
+        }
+    });
