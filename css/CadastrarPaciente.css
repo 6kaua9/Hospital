@@ -4,7 +4,7 @@ body {
 }
 
 #nome {
-    width: 710px;
+    width: 780px;
     padding: 10px;
     margin: 10px 0;
     border: 1px solid #ccc;
@@ -49,7 +49,7 @@ form {
 }
 
 #documento {
-    width: 300px;
+    width: 370px;
     padding: 10px;
     margin:  10px 0;
 
@@ -67,7 +67,7 @@ form {
 }
 
 #idade {
-    width: 200px;
+    width: 375px;
     padding: 10px;
     margin:  10px 0;
     border: 1px solid  #ccc;
