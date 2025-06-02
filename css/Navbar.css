@@ -9,6 +9,14 @@
     position: absolute; top: 60px; right: 32px; z-index: 100;
 }
 
+.wrapper{
+    background: linear-gradient(90deg, #4f8cff 0%, #6ee7b7 100%);
+    padding: 16px;
+}
+h1{
+    color: white;
+}
+
 .popup-content-logoff p {
     margin: 0 0 12px 0;
     color: #2d3a4a;

@@ -1,19 +1,24 @@
 <head>
     <link rel="stylesheet" href="../css/Navbar.css">
 </head>
-    <div class="header-content">
-        <h1>🏥 Sistema Hospitalar</h1>
-        <span class="user-icon" id="userIcon" style="cursor:pointer;">👤 User Null</span>
+    <div class="wrapper">
+
+        <div class="header-content">
+            <h1>🏥 Sistema Hospitalar</h1>
+            <span class="user-icon" id="userIcon" style="cursor:pointer;">👤 User Null</span>
+        </div>
+        <nav class="navbar">
+            <button onclick="window.location.href='TelaInicial.html'">Início</button>
+            <button id="btnProfissionais">Profissionais</button>
+            <button id="btnPacientes">Pacientes</button>
+            <button id="btnInternacoes">Internações</button>
+            <button id="btnAlas">Alas</button>
+            <button>Relatórios</button>
+            <button id="btnConfiguracoes">Configurações</button>
+        </nav>
+
     </div>
-    <nav class="navbar">
-        <button onclick="window.location.href='TelaInicial.html'">Início</button>
-        <button id="btnProfissionais">Profissionais</button>
-        <button id="btnPacientes">Pacientes</button>
-        <button id="btnInternacoes">Internações</button>
-        <button id="btnAlas">Alas</button>
-        <button>Relatórios</button>
-        <button id="btnConfiguracoes">Configurações</button>
-    </nav>
+    
        <div id="popupPacientes" class="popup-pacientes" style="display:none;">
         <div class="popup-content">
             <h3>Pacientes</h3>
