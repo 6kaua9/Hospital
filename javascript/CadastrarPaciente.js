@@ -60,6 +60,7 @@ function salvar(){
         });
         localStorage.setItem("cadastros", JSON.stringify(cadastroPaciente));
     }
+    alert("paciente cadastrado com sucesso!");
     renderizar();
 }
 

@@ -65,6 +65,7 @@ function registrarInternacao() {
     }
     internacoes.push({ paciente, documento, ala, estadoSaude, medicamentos, exames, medica, enfermeira, dataHora });
     localStorage.setItem('Internacoes', JSON.stringify(internacoes));  
+    alert("Internação cadastrado com sucesso!");
     renderizar();
 }
 

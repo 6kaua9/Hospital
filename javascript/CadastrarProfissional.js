@@ -38,6 +38,7 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
                 });
                 localStorage.setItem("Profissionais", JSON.stringify(cadastroProfissional));
             }
+            alert("Profissional cadastrado com sucesso!");
         }
 
     function renderizar() {

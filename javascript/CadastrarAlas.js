@@ -10,6 +10,7 @@ function salvarAla() {
         cadastroAlas.push({ nomeAla, especialidade, sexo, capacidade });
         localStorage.setItem("Alas", JSON.stringify(cadastroAlas));
     }
+    alert("Nova ala cadastrado com sucesso!");
     renderizar();
 }
 
