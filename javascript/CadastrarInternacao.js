@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     const selectPaciente = document.getElementById('paciente');
     pacientes.forEach(p => {
         const opt = document.createElement('option');
-        opt.value = p.documento;
+        opt.value = p.nome;
         opt.textContent = p.nome;
         selectPaciente.appendChild(opt);
     });
@@ -46,6 +46,11 @@ function registrarInternacao() {
         dataHora = now.toISOString().slice(0,16);
     }
 
+    // Busca o documento do paciente selecionado
+    const pacientes = JSON.parse(localStorage.getItem('cadastros')) || [];
+    const pacienteObj = pacientes.find(p => p.nome === paciente);
+    const documento = pacienteObj ? pacienteObj.documento : '';
+
     if (!paciente || !ala || !estadoSaude || !medicamentos || !exames || !medica || !enfermeira) {
         alert('Preencha todos os campos obrigatórios!');
         return;
@@ -58,7 +63,7 @@ function registrarInternacao() {
         alert('O exame hemograma é obrigatório!');
         return;
     }
-    internacoes.push({ paciente, ala, estadoSaude, medicamentos, exames, medica, enfermeira, dataHora });
+    internacoes.push({ paciente, documento, ala, estadoSaude, medicamentos, exames, medica, enfermeira, dataHora });
     localStorage.setItem('Internacoes', JSON.stringify(internacoes));  
     renderizar();
 }

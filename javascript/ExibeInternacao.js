@@ -20,6 +20,7 @@ function exibirDetalhes(index) {
     const i = internacoes[index];
     const detalhes = `
         <strong>Paciente:</strong> <span>${i.paciente}</span><br>
+        <strong>Documento:</strong> <span>${i.documento}</span><br>
         <strong>Ala:</strong> <span>${i.ala}</span><br>
         <strong>Estado de Saúde:</strong> <span>${i.estadoSaude}</span><br>
         <strong>Medicamentos:</strong> <span>${i.medicamentos}</span><br>

@@ -12,7 +12,6 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
             const telefone= document.getElementById("Telefone").value;
             const funçao = document.getElementById("funçao").value;
             const matricula= document.getElementById("matricula").value;
-            const nivelAcesso = document.getElementById("nivel").value;
             if(funçao === 'medico' || funçao === 'enfermeiro') {
                 if(!matricula) {
                     alert('Matrícula é obrigatória para médicos e enfermeiros!');
@@ -34,8 +33,7 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
                     telefone,
                     funçao,
                     matricula: (funçao === 'medico' || funçao === 'enfermeiro') ? matricula : 'Sem Matricula',
-                    cargo,
-                    nivelAcesso
+                    cargo
                 });
                 localStorage.setItem("Profissionais", JSON.stringify(cadastroProfissional));
             }
@@ -88,3 +86,20 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
             selectFuncao.addEventListener('change', atualizarCampoMatricula);
         }
     });
+
+//pop up descrição niveis usuarios
+document.addEventListener('DOMContentLoaded', function() {
+            const btnInfo = document.getElementById('btnInfoNivel');
+            const popup = document.getElementById('popupNivelInfo');
+            if(btnInfo && popup) {
+                btnInfo.addEventListener('click', function(e) {
+                    e.stopPropagation();
+                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
+                });
+                document.addEventListener('click', function(e) {
+                    if (popup.style.display === 'block' && !popup.contains(e.target) && e.target !== btnInfo) {
+                        popup.style.display = 'none';
+                    }
+                });
+            }
+});

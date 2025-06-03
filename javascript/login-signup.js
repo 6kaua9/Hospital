@@ -1,5 +1,19 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Login
+    // Garante que exista um admin cadastrado em Profissionais
+    let profissionais = JSON.parse(localStorage.getItem('Profissionais')) || [];
+    if (!profissionais.some(p => p.documento === '00000000000')) {
+        profissionais.push({
+            nome: 'Administrador',
+            documento: '00000000000', // CPF fictício para admin
+            idade: '01', // Dia de nascimento fictício
+            cargo: 'admin',           // <-- cargo como admin
+            nivelAcesso: 'admin',     // <-- nivelAcesso como admin
+            matricula: 'admin',
+            funçao: 'admin'
+        });
+        localStorage.setItem('Profissionais', JSON.stringify(profissionais));
+    }
+    // Login usando CPF e dia de nascimento
     const formLogin = document.querySelector('form');
     if (formLogin) {
         formLogin.onsubmit = function(e) {
@@ -15,10 +29,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 function loginProfissional(cpf, diaNascimento) {
     let profissionais = JSON.parse(localStorage.getItem('Profissionais')) || [];
-    // Considerando que 'documento' é o CPF e 'idade' é o dia do nascimento (ou ajuste para 'dataNascimento' se preferir)
     let profissional = profissionais.find(p => 
         (p.documento === cpf) && 
-        (String(p.idade) === diaNascimento) // ou p.dataNascimento === diaNascimento
+        (String(p.idade) === diaNascimento)
     );
     if (profissional) {
         localStorage.setItem('usuarioLogado', JSON.stringify({
@@ -26,33 +39,12 @@ function loginProfissional(cpf, diaNascimento) {
             nome: profissional.nome,
             cargo: profissional.cargo || '',
             matricula: profissional.matricula || '',
-            funcao: profissional.funçao || profissional.funcao || ''
+            funcao: profissional.funçao || profissional.funcao || '',
+            nivelAcesso: profissional.nivelAcesso || ''
         }));
         return true;
     } else {
         alert('CPF ou dia de nascimento inválidos');
         return false;
     }
-
-
-document.addEventListener('DOMContentLoaded', function() {
-    // Cria o admin padrão se não existir
-    let usuarios = JSON.parse(localStorage.getItem('usuarios')) || [];
-    if (!usuarios.some(u => u.matricula === 'admin')) {
-        usuarios.push({
-            nome: 'Administrador',
-            matricula: 'admin',
-            nivelAcesso: 'admin',
-            funcao: 'admin',
-            cargo: 'Administrador',
-            telefone: '',
-            endereco: '',
-            senha: 'admin123',
-            validado: true // admin já é validado
-        });
-        localStorage.setItem('usuarios', JSON.stringify(usuarios));
-    }
-});
-
-
 }

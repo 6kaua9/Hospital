@@ -11,7 +11,7 @@
     <header id="navbar">
 
     </header>
-    <form id="regristroProfissional">
+    <form id="registroProfissional">
         <h2>Cadastro de Profissional</h2>
         <div class="linha1">
             <div class="campo">
@@ -75,21 +75,32 @@
                 <input type="text" id="cargo" placeholder="cargo">
             </div>
             <div class="linha"></div>
-            <div class="input-box" style="position: relative; display: flex; align-items: center; gap: 8px;">
+                <div class="input-box" style="position: relative; display: flex; align-items: center; gap: 8px;">
                     <select id="nivel" required>
                         <option value="">Selecione o nível de acesso</option>
                         <option value="admin">Administrador</option>
                         <option value="medico">Médico(a)</option>
-                        <option value="enfermeira_chefe">Enfermeira Chefe</option>
-                        <option value="enfermeira">Enfermeira</option>
+                        <option value="enfermeira_chefe">Enfermeiro(a) Chefe</option>
+                        <option value="enfermeira">Enfermeiro(a)</option>
                         <option value="recepcao">Recepcionista</option>
                         <option value="usuario">Usuário Comum</option>
                     </select>
-                    <button type="button" id="btnInfoNivel" title="Sobre os níveis de acesso" style="background: none; border: none; cursor: pointer; font-size: 1.2em; padding: 0 6px; margin-bottom: 16px;">
+                    <button type="button" id="btnInfoNivel" title="Sobre os níveis de acesso">
                         <span style="font-weight: bold; color: #007bff;">?</span>
                     </button>
-            </div>
-            
+                </div>
+                <div id="popupNivelInfo" style="display:none;">
+                    <strong>Níveis de acesso:</strong>
+                    <ul style="margin: 8px 0 0 16px; padding: 0;">
+                        <li><b>Administrador</b>: Gerencia usuários e valida cadastros.</li>
+                        <li><b>Médico(a)</b>: Acesso total a pacientes e internações.</li>
+                        <li><b>Enfermeiro(a) Chefe</b>: Gerencia alas e equipe de enfermagem.</li>
+                        <li><b>Enfermeiro(a)</b>: Visualiza e atualiza informações de pacientes.</li>
+                        <li><b>Recepcionista</b>: Realiza cadastros e consultas básicas.</li>
+                        <li><b>Usuário Comum</b>: Acesso restrito, apenas visualização.</li>
+                    </ul>
+                </div>
+
         </div>
         <button type="button" onclick="salvar()">Salvar</button>
     </form>
