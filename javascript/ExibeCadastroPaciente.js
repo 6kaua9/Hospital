@@ -26,12 +26,25 @@ let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
             if (paciente.endereco) {
                 enderecoStr = `${paciente.endereco.rua || ''}, Nº ${paciente.endereco.numeroRua || ''}, ${paciente.endereco.bairro || ''}, ${paciente.endereco.cidade || ''} - ${paciente.endereco.estado || ''}`;
             }
+            let responsavelHtml = "";
+            if (parseInt(paciente.idade) < 18 && paciente.responsavel) {
+                responsavelHtml = `<strong>Responsavel:</strong> <span id="responsavel">${paciente.responsavel}</span><br>`;
+            }
+            let planoSaudeHtml = "";
+            if (paciente.plano === "planoDeSaude") {
+            planoSaudeHtml = `
+                <strong>Nome do Plano:</strong> <span id="nomePlano">${paciente.nomePlano || ""}</span><br>
+                <strong>Número do Plano:</strong> <span id="numeroPlano">${paciente.numeroPlano || ""}</span><br>
+            `;
+            }
             const detalhes = `
                 <strong>Nome:</strong> <span id="nome">${paciente.nome}</span><br>
                 <strong>Documento:</strong> <span id="documento">${paciente.documento}</span><br>
+                ${responsavelHtml}
                 <strong>Idade:</strong> <span id="idade">${paciente.idade}</span><br>
                 <strong>Endereço:</strong> <span id="endereco">${enderecoStr}</span><br>
                 <strong>Plano:</strong> <span id="plano">${paciente.plano}</span><br>
+                ${planoSaudeHtml}
                 <strong>Histórico:</strong> <span id="historico">${paciente.historico}</span><br>
                 <strong>Queixa:</strong> <span id="queixa">${paciente.queixa}</span>
             `;

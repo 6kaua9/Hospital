@@ -6,14 +6,16 @@ let profissionalAtualIndex = null;
 function renderizar() {
     const ul = document.getElementById("listaProfissionais");
     ul.innerHTML = "";
-    cadastroProfissional.forEach((item, index) => {
-        const li = document.createElement("li");
-        const link = document.createElement("a");
-        link.href = "#";
-        link.textContent = `${item.nome} | ${item.documento} | ${item.funçao}`;
-        link.onclick = () => exibirDetalhes(index);
-        li.appendChild(link);
-        ul.appendChild(li);
+    cadastroProfissional
+        .filter(item => item.documento !== "00000000000") // Não exibe o admin
+        .forEach((item) => {
+            const li = document.createElement("li");
+            const link = document.createElement("a");
+            link.href = "#";
+            link.textContent = `${item.nome} | ${item.documento} | ${item.funçao}`;
+            link.onclick = () => exibirDetalhes(cadastroProfissional.findIndex(p => p.documento === item.documento));
+            li.appendChild(link);
+            ul.appendChild(li);
     });
 }
 

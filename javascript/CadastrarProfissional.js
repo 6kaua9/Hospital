@@ -12,6 +12,7 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
             const telefone= document.getElementById("Telefone").value;
             const funçao = document.getElementById("funçao").value;
             const matricula= document.getElementById("matricula").value;
+            const cargo= document.getElementById("nivel").value;
             if(funçao === 'medico' || funçao === 'enfermeiro') {
                 if(!matricula) {
                     alert('Matrícula é obrigatória para médicos e enfermeiros!');
