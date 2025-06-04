@@ -1,5 +1,20 @@
 let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || [];
-        function salvar(){
+       
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        // Apenas admin pode criar novos profissionais;
+        const niveisPermitidos = ['admin', '1', '2'];
+        if (!usuarioLogado || !niveisPermitidos.includes(usuarioLogado.nivelAcesso)) {
+            alert('Você não tem permissão para acessar esta página.');
+            window.location.href = 'TelaInicial.html';
+        }
+        window.nivelAcesso = usuarioLogado ? usuarioLogado.nivelAcesso : null;
+    });
+})();
+
+
+function salvar(){
             const nome = document.getElementById("nome").value;
             const documento = document.getElementById("documento").value;
             const idade = document.getElementById("idade").value;
@@ -12,14 +27,15 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
             const telefone= document.getElementById("Telefone").value;
             const funçao = document.getElementById("funçao").value;
             const matricula= document.getElementById("matricula").value;
-            const cargo= document.getElementById("nivel").value;
+            const cargo= document.getElementById("cargo").value;
+            const nivelAcesso = document.getElementById("nivelAcesso").value;
             if(funçao === 'medico' || funçao === 'enfermeiro') {
                 if(!matricula) {
                     alert('Matrícula é obrigatória para médicos e enfermeiros!');
                     return;
                 }
             }
-            if(nome && documento && idade && rua && numeroRua && bairro && cidade && estado && telefone && funçao && (funçao === 'medico' || funçao === 'enfermeiro' ? matricula : true) && cargo){
+            if(nome && documento && idade && rua && numeroRua && bairro && cidade && estado && telefone && funçao && (funçao === 'medico' || funçao === 'enfermeiro' ? matricula : true) && cargo && nivelAcesso){
                 cadastroProfissional.push({
                     nome,
                     documento,
@@ -34,7 +50,8 @@ let cadastroProfissional = JSON.parse(localStorage.getItem("Profissionais")) || 
                     telefone,
                     funçao,
                     matricula: (funçao === 'medico' || funçao === 'enfermeiro') ? matricula : 'Sem Matricula',
-                    cargo
+                    cargo,
+                    nivelAcesso
                 });
                 localStorage.setItem("Profissionais", JSON.stringify(cadastroProfissional));
             }

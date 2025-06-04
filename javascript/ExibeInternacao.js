@@ -1,3 +1,16 @@
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        // Apenas admin, medico, enfermeira_chefe, recepcao podem acessar
+        const niveisPermitidos = ['admin', '1', '2', '3', '5'];
+        if (!usuarioLogado || !niveisPermitidos.includes(usuarioLogado.nivelAcesso)) {
+            alert('Você não tem permissão para acessar esta página.');
+            window.location.href = 'TelaInicial.html';
+        }
+        window.nivelAcesso = usuarioLogado ? usuarioLogado.nivelAcesso : null;
+    });
+})();
+
 let internacoes = JSON.parse(localStorage.getItem('Internacoes')) || [];
 let internacaoAtualIndex = null;
 

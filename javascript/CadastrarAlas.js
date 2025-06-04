@@ -1,5 +1,18 @@
 let cadastroAlas = JSON.parse(localStorage.getItem("Alas")) || [];
 
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        // Apenas admin, medico, enfermeira_chefe, recepcao podem acessar
+        const niveisPermitidos = ['admin', '1', '3'];
+        if (!usuarioLogado || !niveisPermitidos.includes(usuarioLogado.nivelAcesso)) {
+            alert('Você não tem permissão para acessar esta página.');
+            window.location.href = 'TelaInicial.html';
+        }
+        window.nivelAcesso = usuarioLogado ? usuarioLogado.nivelAcesso : null;
+    });
+})();
+
 function salvarAla() {
     const nomeAla = document.getElementById("nomeAla").value;
     const especialidade = document.getElementById("especialidade").value;
