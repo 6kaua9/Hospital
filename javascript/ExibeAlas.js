@@ -73,4 +73,16 @@ function voltar() {
     document.getElementById("ala").style.display = "none";
 }
 
+function excluir() {
+    if (alaAtualIndex !== null && alaAtualIndex >= 0) {
+        // Remove o paciente do array
+        cadastroAlas.splice(alaAtualIndex, 1);
+        // Atualiza o localStorage
+        localStorage.setItem("Alas", JSON.stringify(cadastroAlas));
+        // Volta para a lista e atualiza a tela
+        voltar();
+        renderizar();
+    }
+}
+
 window.onload = renderizar;

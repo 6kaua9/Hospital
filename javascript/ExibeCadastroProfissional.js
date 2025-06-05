@@ -106,4 +106,16 @@ function voltar() {
     document.getElementById("profissional").style.display = "none";
 }
 
+function excluir() {
+    if (profissionalAtualIndex !== null && profissionalAtualIndex >= 0) {
+        // Remove o paciente do array
+        cadastroProfissional.splice(profissionalAtualIndex, 1);
+        // Atualiza o localStorage
+        localStorage.setItem("Profissionais", JSON.stringify(cadastroProfissional));
+        // Volta para a lista e atualiza a tela
+        voltar();
+        renderizar();
+    }
+}
+
 window.onload = renderizar;

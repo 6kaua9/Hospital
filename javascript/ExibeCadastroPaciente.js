@@ -127,4 +127,15 @@ let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
             document.getElementById("paciente").style.display = "none";
         }
 
+        function excluir() {
+            if (pacienteAtualIndex !== null && pacienteAtualIndex >= 0) {
+                // Remove o paciente do array
+                cadastroPaciente.splice(pacienteAtualIndex, 1);
+                // Atualiza o localStorage
+                localStorage.setItem("cadastros", JSON.stringify(cadastroPaciente));
+                // Volta para a lista e atualiza a tela
+                voltar();
+                renderizar();
+            }
+        }
         window.onload = renderizar;
