@@ -18,9 +18,9 @@ function salvarAla() {
     const especialidade = document.getElementById("especialidade").value;
     const sexo = document.getElementById("sexo").value;
     const capacidade = document.getElementById("capacidade").value;
-
+    const id = Date.now();
     if (nomeAla && especialidade && sexo) {
-        cadastroAlas.push({ nomeAla, especialidade, sexo, capacidade });
+        cadastroAlas.push({ id, nomeAla, especialidade, sexo, capacidade });
         localStorage.setItem("Alas", JSON.stringify(cadastroAlas));
     }
     alert("Nova ala cadastrado com sucesso!");

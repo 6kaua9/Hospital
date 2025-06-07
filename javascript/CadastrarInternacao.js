@@ -76,7 +76,8 @@ function registrarInternacao() {
         alert('O exame hemograma é obrigatório!');
         return;
     }
-    internacoes.push({ paciente, documento, ala, estadoSaude, medicamentos, exames, medica, enfermeira, dataHora });
+    const id = Date.now();
+    internacoes.push({ id, paciente, documento, ala, estadoSaude, medicamentos, exames, medica, enfermeira, dataHora, dataAlta: null, status: 'ativa' });
     localStorage.setItem('Internacoes', JSON.stringify(internacoes));  
     alert("Internação cadastrado com sucesso!");
     renderizar();

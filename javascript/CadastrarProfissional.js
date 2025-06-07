@@ -29,6 +29,7 @@ function salvar(){
             const matricula= document.getElementById("matricula").value;
             const cargo= document.getElementById("cargo").value;
             const nivelAcesso = document.getElementById("nivelAcesso").value;
+            const id = Date.now();
             if(funçao === 'medico' || funçao === 'enfermeiro') {
                 if(!matricula) {
                     alert('Matrícula é obrigatória para médicos e enfermeiros!');
@@ -37,6 +38,7 @@ function salvar(){
             }
             if(nome && documento && idade && rua && numeroRua && bairro && cidade && estado && telefone && funçao && (funçao === 'medico' || funçao === 'enfermeiro' ? matricula : true) && cargo && nivelAcesso){
                 cadastroProfissional.push({
+                    id,
                     nome,
                     documento,
                     idade,

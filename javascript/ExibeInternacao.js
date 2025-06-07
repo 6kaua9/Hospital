@@ -21,7 +21,7 @@ function renderizar() {
         const li = document.createElement('li');
         const link = document.createElement('a');
         link.href = '#';
-        link.textContent = `${item.paciente} | ${item.ala} | ${item.estadoSaude} | ${item.dataHora}`;
+        link.textContent = `${item.paciente} | ${item.ala} | ${item.estadoSaude} | ${item.dataHora} | Status: ${item.status || 'ativa'}`;
         link.onclick = () => exibirDetalhes(index);
         li.appendChild(link);
         ul.appendChild(li);
@@ -31,7 +31,7 @@ function renderizar() {
 function exibirDetalhes(index) {
     internacaoAtualIndex = index;
     const i = internacoes[index];
-    const detalhes = `
+    let detalhes = `
         <strong>Paciente:</strong> <span>${i.paciente}</span><br>
         <strong>Documento:</strong> <span>${i.documento}</span><br>
         <strong>Ala:</strong> <span>${i.ala}</span><br>
@@ -40,8 +40,13 @@ function exibirDetalhes(index) {
         <strong>Exames:</strong> <span>${i.exames}</span><br>
         <strong>Médica Plantonista:</strong> <span>${i.medica}</span><br>
         <strong>Enfermeira Chefe:</strong> <span>${i.enfermeira}</span><br>
-        <strong>Data/Hora de Início:</strong> <span>${i.dataHora}</span>
-    `;
+        <strong>Data/Hora de Início:</strong> <span>${i.dataHora}</span><br>
+        <strong>Status:</strong> <span>${i.status || 'ativa'}</span><br>
+        <strong>Data/Hora da Alta:</strong> <span>${i.dataAlta || '-'}</span><br>
+        <button onclick="voltar()">Voltar</button> <button onclick="editarDetalhes()">Editar</button>`;
+    if ((i.status || 'ativa') === 'ativa') {
+        detalhes += ` <button onclick="abrirFormAlta(${index})">Dar Alta</button>`;
+    }
     document.getElementById('detalhesInternacao').innerHTML = detalhes;
     document.getElementById('Lista').style.display = 'none';
     document.getElementById('internacao').style.display = 'block';
@@ -76,6 +81,43 @@ function salvarEdicao() {
     };
     localStorage.setItem('Internacoes', JSON.stringify(internacoes));
     exibirDetalhes(internacaoAtualIndex);
+}
+
+function abrirFormAlta(index) {
+    const i = internacoes[index];
+    // Data/hora padrão: agora
+    const now = new Date();
+    const padrao = now.toISOString().slice(0,16);
+    const form = `
+        <strong>Data/Hora da Alta:</strong> <input id="inputDataAlta" type="datetime-local" value="${padrao}"><br>
+        <button onclick="confirmarAlta(${index})">Confirmar Alta</button>
+        <button onclick="fecharFormAlta()">Cancelar</button>
+    `;
+    document.getElementById('detalhesInternacao').innerHTML = form;
+    document.getElementById('Lista').style.display = 'none';
+    document.getElementById('internacao').style.display = 'block';
+}
+
+function confirmarAlta(index) {
+    const dataAltaInput = document.getElementById('inputDataAlta').value;
+    let dataAltaFormatada = '';
+    if (dataAltaInput) {
+        const d = new Date(dataAltaInput);
+        dataAltaFormatada = `${d.toLocaleDateString()} ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+    } else {
+        const now = new Date();
+        dataAltaFormatada = `${now.toLocaleDateString()} ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
+    }
+    internacoes[index].status = 'encerrada';
+    internacoes[index].dataAlta = dataAltaFormatada;
+    localStorage.setItem('Internacoes', JSON.stringify(internacoes));
+    alert('Alta registrada com sucesso!');
+    voltar();
+    renderizar();
+}
+
+function fecharFormAlta() {
+    voltar();
 }
 
 function voltar() {

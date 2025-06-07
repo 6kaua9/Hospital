@@ -52,9 +52,11 @@ function salvar(){
     const numeroPlano = document.getElementById("numeroPlano").value;
     const historico= document.getElementById("historico").value;
     const queixa= document.getElementById("queixa").value;
+    const id = Date.now();
 
     if (nome && documento && idade && sexo) {
         cadastroPaciente.push({
+            id,
             nome,
             documento,
             idade,
