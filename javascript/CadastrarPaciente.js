@@ -39,6 +39,7 @@ function salvar(){
     const nome = document.getElementById("nome").value;
     const documento = document.getElementById("documento").value;
     const idade = document.getElementById("idade").value;
+    const sexo = document.getElementById("sexo").value;
     const responsavel = document.getElementById("nomeResponsavel") ? document.getElementById("nomeResponsavel").value : "";
     // Novos campos de endereço
     const rua = document.getElementById("rua").value;
@@ -52,12 +53,12 @@ function salvar(){
     const historico= document.getElementById("historico").value;
     const queixa= document.getElementById("queixa").value;
 
-    if (nome && documento && idade) {
+    if (nome && documento && idade && sexo) {
         cadastroPaciente.push({
             nome,
             documento,
             idade,
-            responsavel,
+            sexo,
             endereco: {
                 rua,
                 numeroRua,

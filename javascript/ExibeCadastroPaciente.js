@@ -32,63 +32,60 @@ let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
         function exibirDetalhes(index) {
             pacienteAtualIndex = index;
             const paciente = cadastroPaciente[index];
-            // Monta o endereço formatado se existir
-            let enderecoStr = "";
+            let rua = '', numeroRua = '', bairro = '', cidade = '', estado = '';
             if (paciente.endereco) {
-                enderecoStr = `${paciente.endereco.rua || ''}, Nº ${paciente.endereco.numeroRua || ''}, ${paciente.endereco.bairro || ''}, ${paciente.endereco.cidade || ''} - ${paciente.endereco.estado || ''}`;
-            }
-            let responsavelHtml = "";
-            if (parseInt(paciente.idade) < 18 && paciente.responsavel) {
-                responsavelHtml = `<strong>Responsavel:</strong> <span id="responsavel">${paciente.responsavel}</span><br>`;
-            }
-            let planoSaudeHtml = "";
-            if (paciente.plano === "planoDeSaude") {
-            planoSaudeHtml = `
-                <strong>Nome do Plano:</strong> <span id="nomePlano">${paciente.nomePlano || ""}</span><br>
-                <strong>Número do Plano:</strong> <span id="numeroPlano">${paciente.numeroPlano || ""}</span><br>
-            `;
+                rua = paciente.endereco.rua || '';
+                numeroRua = paciente.endereco.numeroRua || '';
+                bairro = paciente.endereco.bairro || '';
+                cidade = paciente.endereco.cidade || '';
+                estado = paciente.endereco.estado || '';
             }
             const detalhes = `
-                <strong>Nome:</strong> <span id="nome">${paciente.nome}</span><br>
-                <strong>Documento:</strong> <span id="documento">${paciente.documento}</span><br>
-                ${responsavelHtml}
-                <strong>Idade:</strong> <span id="idade">${paciente.idade}</span><br>
-                <strong>Endereço:</strong> <span id="endereco">${enderecoStr}</span><br>
-                <strong>Plano:</strong> <span id="plano">${paciente.plano}</span><br>
-                ${planoSaudeHtml}
+                <strong>Nome:</strong> <span>${paciente.nome}</span><br>
+                <strong>Documento:</strong> <span>${paciente.documento}</span><br>
+                <strong>Idade:</strong> <span>${paciente.idade}</span><br>
+                <strong>Sexo:</strong> <span>${paciente.sexo || '-'}</span><br>
+                <strong>Rua:</strong> <span>${rua}</span><br>
+                <strong>Nº Rua:</strong> <span>${numeroRua}</span><br>
+                <strong>Bairro:</strong> <span>${bairro}</span><br>
+                <strong>Cidade:</strong> <span>${cidade}</span><br>
+                <strong>Estado:</strong> <span>${estado}</span><br>
+                <strong>Plano:</strong> <span>${paciente.plano}</span><br>
                 <strong>Histórico:</strong> <span id="historico">${paciente.historico}</span><br>
                 <strong>Queixa:</strong> <span id="queixa">${paciente.queixa}</span>
             `;
             document.getElementById("detalhesPaciente").innerHTML = detalhes;
-
-            // Esconde a seção "Lista" e mostra a seção "paciente"
             document.getElementById("Lista").style.display = "none";
             document.getElementById("paciente").style.display = "block";
         }
 
         function editarDetalhes() {
             const paciente = cadastroPaciente[pacienteAtualIndex];
-            // Preenche campos separados para endereço
-            let rua = "", numeroRua = "", bairro = "", cidade = "", estado = "";
+            let rua = '', numeroRua = '', bairro = '', cidade = '', estado = '';
             if (paciente.endereco) {
-                rua = paciente.endereco.rua || "";
-                numeroRua = paciente.endereco.numeroRua || "";
-                bairro = paciente.endereco.bairro || "";
-                cidade = paciente.endereco.cidade || "";
-                estado = paciente.endereco.estado || "";
+                rua = paciente.endereco.rua || '';
+                numeroRua = paciente.endereco.numeroRua || '';
+                bairro = paciente.endereco.bairro || '';
+                cidade = paciente.endereco.cidade || '';
+                estado = paciente.endereco.estado || '';
             }
             const detalhes = `
                 <strong>Nome:</strong> <input id="editNome" value="${paciente.nome}"><br>
                 <strong>Documento:</strong> <input id="editDocumento" value="${paciente.documento}"><br>
                 <strong>Idade:</strong> <input id="editIdade" type="number" value="${paciente.idade}"><br>
+                <strong>Sexo:</strong> <select id="editSexo">
+                    <option value="Feminino" ${paciente.sexo === 'Feminino' ? 'selected' : ''}>Feminino</option>
+                    <option value="Masculino" ${paciente.sexo === 'Masculino' ? 'selected' : ''}>Masculino</option>
+                    <option value="Outro" ${paciente.sexo === 'Outro' ? 'selected' : ''}>Outro</option>
+                </select><br>
                 <strong>Rua:</strong> <input id="editRua" value="${rua}"><br>
                 <strong>Nº Rua:</strong> <input id="editNumeroRua" value="${numeroRua}"><br>
                 <strong>Bairro:</strong> <input id="editBairro" value="${bairro}"><br>
                 <strong>Cidade:</strong> <input id="editCidade" value="${cidade}"><br>
                 <strong>Estado:</strong> <input id="editEstado" value="${estado}"><br>
                 <strong>Plano:</strong> <select id="editPlano">
-                <option value="SUS" ${paciente.plano === "SUS" ? "selected" : ""}>SUS</option>
-                <option value="planoDeSaude" ${paciente.plano === "planoDeSaude" ? "selected" : ""}>Plano de saude</option></select><br>
+                    <option value="SUS" ${paciente.plano === "SUS" ? "selected" : ""}>SUS</option>
+                    <option value="planoDeSaude" ${paciente.plano === "planoDeSaude" ? "selected" : ""}>Plano de saude</option></select><br>
                 <strong>Histórico:</strong> <textarea id="editHistorico">${paciente.historico}</textarea><br>
                 <strong>Queixa:</strong> <textarea id="editQueixa">${paciente.queixa}</textarea><br>
                 <button onclick="salvarEdicao()">Salvar</button>
@@ -97,11 +94,11 @@ let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
         }
 
         function salvarEdicao() {
-            // Atualiza os dados do paciente com os valores editados
             cadastroPaciente[pacienteAtualIndex] = {
                 nome: document.getElementById("editNome").value,
                 documento: document.getElementById("editDocumento").value,
                 idade: document.getElementById("editIdade").value,
+                sexo: document.getElementById("editSexo").value,
                 endereco: {
                     rua: document.getElementById("editRua").value,
                     numeroRua: document.getElementById("editNumeroRua").value,
@@ -113,11 +110,7 @@ let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
                 historico: document.getElementById("editHistorico").value,
                 queixa: document.getElementById("editQueixa").value,
             };
-
-            // Salva os dados atualizados no localStorage
             localStorage.setItem("cadastros", JSON.stringify(cadastroPaciente));
-
-            // Reexibe os detalhes atualizados
             exibirDetalhes(pacienteAtualIndex);
         }
 
