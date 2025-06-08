@@ -1,0 +1,56 @@
+#relatorioAtivas {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.10);
+}
+
+.cabeca{
+    justify-self: center;
+}
+#internacoesAtivas h2, #internacoesFinalizadas h2 {
+    color: #15803d;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 1.35em;
+    border-bottom: 2px solid #def7e0;
+    padding-bottom: 4px;
+}
+
+#internacoesAtivas table, #internacoesFinalizadas table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    background: #f0fdf4;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(34, 197, 94, 0.1);
+}
+
+#internacoesAtivas th, #internacoesAtivas td,
+#internacoesFinalizadas th, #internacoesFinalizadas td {
+    padding: 10px 14px;
+    text-align: left;
+}
+
+#internacoesAtivas th, #internacoesFinalizadas th {
+    background: linear-gradient(90deg, #34d399 0%, #4ade80 100%);
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #def7e0;
+}
+
+
+#internacoesAtivas td, #internacoesFinalizadas td {
+    color: #1b4332;
+    font-size: 1em;
+}
+
+#internacoesAtivas p, #internacoesFinalizadas p {
+    color: #666;
+    font-style: italic;
+    margin: 12px 0 24px 0;
+}
+

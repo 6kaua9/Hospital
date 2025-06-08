@@ -1,0 +1,81 @@
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #f6f8fa;
+    margin: 0;
+    padding: 0;
+}
+
+.cabeca{
+    justify-self: center;
+}
+
+#relatorioProfissional {
+    max-width: 900px;
+    margin: 32px auto;
+    padding: 24px;
+    background: #fff;
+    border-radius: 14px;
+    box-shadow: 0 2px 16px rgba(44, 62, 80, 0.10);
+}
+
+#relatorioProfissional h2 {
+    color: #2563eb;
+    margin-top: 24px;
+    margin-bottom: 12px;
+    font-size: 1.35em;
+    border-bottom: 2px solid #e3eafc;
+    padding-bottom: 4px;
+}
+
+#relatorioProfissional table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    background: #f9fafb;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 1px 6px rgba(44, 62, 80, 0.06);
+}
+
+#relatorioProfissional th, #relatorioProfissional td {
+    padding: 10px 14px;
+    text-align: left;
+}
+
+#relatorioProfissional th {
+    background: linear-gradient(90deg, #4f8cff 0%, #6ee7b7 100%);
+    color: #fff;
+    font-weight: 600;
+    border-bottom: 2px solid #e3eafc;
+}
+
+#relatorioProfissional tr:nth-child(even) {
+    background: #e3eafc;
+}
+
+#relatorioProfissional tr:nth-child(odd) {
+    background: #f9fafb;
+}
+
+#relatorioProfissional td {
+    color: #2d3a4a;
+    font-size: 1em;
+}
+
+#relatorioProfissional p {
+    color: #888;
+    font-style: italic;
+    margin: 12px 0 24px 0;
+}
+
+@media (max-width: 700px) {
+    #relatorioProfissional {
+        padding: 8px;
+    }
+    #relatorioProfissional table, #relatorioProfissional th, #relatorioProfissional td {
+        font-size: 0.98em;
+    }
+    #relatorioProfissional h2 {
+        font-size: 1.1em;
+    }
+}

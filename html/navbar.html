@@ -13,7 +13,7 @@
             <button id="btnPacientes">Pacientes</button>
             <button id="btnInternacoes">Internações</button>
             <button id="btnAlas">Alas</button>
-            <button onclick="window.location.href='relatorioPacientePorAla.html'" id="btnRelatorios">Relatórios</button>
+            <button id="btnRelatorios">Relatórios</button>
             <button id="btnConfiguracoes">Configurações</button>
         </nav>
 
@@ -49,6 +49,17 @@
             <button onclick="window.location.href='CadastrarInternacao.html'">Registrar Internação</button>
             <button onclick="window.location.href='ExibeInternacao.html'">Vizualizar Internações</button>
             <span class="close-popup" onclick="fecharPopupInternacoes()">&times;</span>
+        </div>
+    </div>
+
+    <div id="popupRelatorios" class="popup-relatorios" style="display:none;">
+        <div class="popup-content">
+            <h3>Relatorios</h3>
+            <button onclick="window.location.href='relatorioPacientePorAla.html'">Pacientes por Ala</button>
+            <button onclick="window.location.href='relatorioInternacaoAtiva.html'">Internações Ativas</button>
+            <button onclick="window.location.href='relatorioInternacaoPorProfissional.html'">Internações por Médico</button>
+            <button onclick="window.location.href='relatorioInternacaoPeriodo.html'">Internações por Período</button>
+            <span class="close-popup" onclick="fecharPopupRelatorios()">&times;</span>
         </div>
     </div>
 
