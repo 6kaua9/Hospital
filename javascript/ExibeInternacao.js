@@ -21,7 +21,7 @@ function renderizar() {
         const li = document.createElement('li');
         const link = document.createElement('a');
         link.href = '#';
-        link.textContent = `${item.paciente} | ${item.ala} | ${item.estadoSaude} | ${item.dataHora} | Status: ${item.status || 'ativa'}`;
+        link.textContent = `${item.pacienteNome} | ${item.alaNome} | ${item.estadoSaude} | ${item.dataHora} | Status: ${item.status || 'ativa'}`;
         link.onclick = () => exibirDetalhes(index);
         li.appendChild(link);
         ul.appendChild(li);
@@ -32,13 +32,13 @@ function exibirDetalhes(index) {
     internacaoAtualIndex = index;
     const i = internacoes[index];
     let detalhes = `
-        <strong>Paciente:</strong> <span>${i.paciente}</span><br>
+        <strong>Paciente:</strong> <span>${i.pacienteNome}</span><br>
         <strong>Documento:</strong> <span>${i.documento}</span><br>
-        <strong>Ala:</strong> <span>${i.ala}</span><br>
+        <strong>Ala:</strong> <span>${i.alaNome}</span><br>
         <strong>Estado de Saúde:</strong> <span>${i.estadoSaude}</span><br>
         <strong>Medicamentos:</strong> <span>${i.medicamentos}</span><br>
         <strong>Exames:</strong> <span>${i.exames}</span><br>
-        <strong>Médica Plantonista:</strong> <span>${i.medica}</span><br>
+        <strong>Médica Plantonista:</strong> <span>${i.medicaNome}</span><br>
         <strong>Enfermeira Chefe:</strong> <span>${i.enfermeira}</span><br>
         <strong>Data/Hora de Início:</strong> <span>${i.dataHora}</span><br>
         <strong>Status:</strong> <span>${i.status || 'ativa'}</span><br>
