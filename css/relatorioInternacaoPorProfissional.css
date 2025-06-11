@@ -8,6 +8,9 @@ body {
 .cabeca{
     justify-self: center;
 }
+.cabeca h1{
+    color: black;
+}
 
 #relatorioProfissional {
     max-width: 900px;
@@ -66,16 +69,4 @@ body {
     color: #888;
     font-style: italic;
     margin: 12px 0 24px 0;
-}
-
-@media (max-width: 700px) {
-    #relatorioProfissional {
-        padding: 8px;
-    }
-    #relatorioProfissional table, #relatorioProfissional th, #relatorioProfissional td {
-        font-size: 0.98em;
-    }
-    #relatorioProfissional h2 {
-        font-size: 1.1em;
-    }
 }

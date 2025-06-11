@@ -4,50 +4,28 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
 
-            document.getElementById('btnPacientes').onclick = function() {
-                document.getElementById('popupPacientes').style.display = 'block';
-            };
-            document.getElementById('btnProfissionais').onclick = function() {
-                document.getElementById('popupProfissionais').style.display = 'block';
-            };
-            document.getElementById('btnAlas').onclick = function() {
-                document.getElementById('popupAlas').style.display = 'block';
-            };
-            document.getElementById('btnInternacoes').onclick = function() {
-                document.getElementById('popupInternacoes').style.display = 'block';
-            };
+            const popups = ['Pacientes', 'Profissionais', 'Alas', 'Internacoes', 'Relatorios'];
 
-            window.fecharPopupPacientes = function() {
-                document.getElementById('popupPacientes').style.display = 'none';
-            };
-            window.fecharPopupProfissionais = function() {
-                document.getElementById('popupProfissionais').style.display = 'none';
-            };
-            window.fecharPopupAlas = function() {
-                document.getElementById('popupAlas').style.display = 'none';
-            };
-            window.fecharPopupInternacoes = function() {
-                document.getElementById('popupInternacoes').style.display = 'none';
-            };
+            popups.forEach(popup => {
+                const btn = document.getElementById(`btn${popup}`);
+                const modal = document.getElementById(`popup${popup}`);
 
-            window.onclick = function(event) {
-                const popupPac = document.getElementById('popupPacientes');
-                const popupProf = document.getElementById('popupProfissionais');
-                const popupAlas = document.getElementById('popupAlas');
-                const popupInt = document.getElementById('popupInternacoes');
-                if (event.target === popupPac) {
-                    popupPac.style.display = 'none';
+                if (btn && modal) {
+                    btn.onclick = () => modal.style.display = 'block';
+
+                    // Função para fechar o popup via escopo global (se necessário)
+                    window[`fecharPopup${popup}`] = () => modal.style.display = 'none';
                 }
-                if (event.target === popupProf) {
-                    popupProf.style.display = 'none';
-                }
-                if (event.target === popupAlas) {
-                    popupAlas.style.display = 'none';
-                }
-                if (event.target === popupInt) {
-                    popupInt.style.display = 'none';
-                }
-            };
+            });
+
+            window.onclick = function (event) {
+                popups.forEach(popup => {
+                    const modal = document.getElementById(`popup${popup}`);
+                    if (event.target === modal) {
+                        modal.style.display = 'none';
+                    }
+                });
+            }
 
             // Logoff popup logic
             const userIcon = document.getElementById('userIcon');
@@ -147,40 +125,5 @@ document.addEventListener("DOMContentLoaded", function() {
             } catch (e) {}
             if (nivelAcesso) aplicarPermissoesNavbar(nivelAcesso);
 
-            // Popup Configurações (acesso controlado)
-            const btnConfig = document.getElementById('btnConfiguracoes');
-            const popupConfig = document.getElementById('popupConfiguracoes');
-            if (btnConfig && popupConfig) {
-                btnConfig.onclick = function(e) {
-                    e.stopPropagation();
-                    let usuarioLogado = null;
-                    try {
-                        usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-                    } catch (e) {}
-                    if (usuarioLogado && usuarioLogado.nivelAcesso === 'admin') {
-                        popupConfig.style.display = 'block';
-                    } else {
-                        alert('Apenas administradores podem acessar esta página.');
-                    }
-                };
-                popupConfig.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                });
-                document.addEventListener('click', function(e) {
-                    if (popupConfig.style.display === 'block' && !popupConfig.contains(e.target) && e.target !== btnConfig) {
-                        popupConfig.style.display = 'none';
-                    }
-                });
-                window.fecharPopupConfiguracoes = function() {
-                    popupConfig.style.display = 'none';
-                };
-            }
-            // O botão fica sempre visível, popup só abre para admin
-            if (nivelAcesso !== 'admin' && btnConfig) {
-                btnConfig.style.display = 'none';
-            }
-            if (nivelAcesso !== 'admin' && popupConfig) {
-                popupConfig.style.display = 'none';
-            }
         });
 });

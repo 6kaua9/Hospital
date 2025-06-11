@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const alas = JSON.parse(localStorage.getItem("Alas")) || [];
 
   const ativas = internacoes.filter(i => i.status === 'ativa');
-  const finalizadas = internacoes.filter(i => i.status === 'finalizada');
+  const finalizadas = internacoes.filter(i => i.status === 'encerrada');
 
   function criarTabelaInternacoes(lista) {
     const tabela = document.createElement("table");

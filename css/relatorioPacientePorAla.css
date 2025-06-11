@@ -74,14 +74,3 @@ body {
     margin: 12px 0 24px 0;
 }
 
-@media (max-width: 700px) {
-    #relatorioAla {
-        padding: 8px;
-    }
-    #relatorioAla table, #relatorioAla th, #relatorioAla td {
-        font-size: 0.98em;
-    }
-    #relatorioAla h2 {
-        font-size: 1.1em;
-    }
-}

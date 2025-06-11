@@ -112,7 +112,7 @@ main {
     transform: scale(1.04);
 }
 
-.popup-pacientes {
+.popup-pacientes, .popup-internacoes, .popup-alas, .popup-profissionais, .popup-relatorios{
     position: fixed;
     top: 0; left: 0; right: 0; bottom: 0;
     background: rgba(0,0,0,0.25);
@@ -168,32 +168,3 @@ main {
     color: #1a73e8;
 }
 
-.popup-profissionais {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.25);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-alas {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.25);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.popup-internacoes {
-    position: fixed;
-    top: 0; left: 0; right: 0; bottom: 0;
-    background: rgba(0,0,0,0.25);
-    z-index: 1000;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}

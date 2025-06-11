@@ -46,7 +46,7 @@ function gerarRelatorioPorPeriodo() {
       <tr>
         <td>${nomePaciente}</td>
         <td>${dataInternacao}</td>
-        <td>${i.ala || '-'}</td>
+        <td>${i.alaNome || '-'}</td>
         <td>${i.estadoSaude || '-'}</td>
         <td>${status}</td>
       </tr>

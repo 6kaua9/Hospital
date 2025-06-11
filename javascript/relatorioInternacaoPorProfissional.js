@@ -23,7 +23,8 @@ function gerarRelatorioPorProfissional() {
     return;
   }
 
-  const relatorio = internacoes.filter(i => i.medica === profissionalIdSelecionado);
+
+  const relatorio = internacoes.filter(i => String(i.medicaId) === String(profissionalIdSelecionado));
 
   const container = document.getElementById("relatorioProfissional");
   container.innerHTML = "";
@@ -53,7 +54,7 @@ function gerarRelatorioPorProfissional() {
       <tr>
         <td>${nomePaciente}</td>
         <td>${new Date(i.dataHora).toLocaleString()}</td>
-        <td>${i.ala || '-'}</td>
+        <td>${i.alaNome || '-'}</td>
         <td>${i.estadoSaude || '-'}</td>
         <td>${i.status || 'ativa'}</td>
       </tr>

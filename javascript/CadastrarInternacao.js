@@ -55,7 +55,7 @@ function registrarInternacao() {
         const now = new Date();
         dataHora = now.toISOString().slice(0, 16);
     }
-
+    console.log(medicaId," e ", pacienteId, " e ", alaId);
     const pacientes = JSON.parse(localStorage.getItem('cadastros')) || [];
     const alas = JSON.parse(localStorage.getItem('Alas')) || [];
     const profissionais = JSON.parse(localStorage.getItem('Profissionais')) || [];
@@ -74,10 +74,10 @@ function registrarInternacao() {
         return;
     }
 
-    if (!exames.toLowerCase().includes('hemograma')) {
-        alert('O exame hemograma é obrigatório!');
+    if (!exames.trim()) {
+        alert('Pelo menos um hemograma é obrigatório!');
         return;
-    }
+    }   
 
     const id = Date.now();
     internacoes.push({

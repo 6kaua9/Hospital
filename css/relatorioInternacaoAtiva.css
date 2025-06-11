@@ -36,7 +36,7 @@
 }
 
 #internacoesAtivas th, #internacoesFinalizadas th {
-    background: linear-gradient(90deg, #34d399 0%, #4ade80 100%);
+    background: linear-gradient(90deg, #4f8cff 0%, #6ee7b7 100%);
     color: #fff;
     font-weight: 600;
     border-bottom: 2px solid #def7e0;
