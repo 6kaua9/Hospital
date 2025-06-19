@@ -55,12 +55,12 @@ function exibirDetalhes(index) {
 function editarDetalhes() {
     const i = internacoes[internacaoAtualIndex];
     const detalhes = `
-        <strong>Paciente:</strong> <input id="editPaciente" value="${i.paciente}"><br>
-        <strong>Ala:</strong> <input id="editAla" value="${i.ala}"><br>
+        <strong>Paciente:</strong> <input id="editPaciente" value="${i.pacienteNome}"><br>
+        <strong>Ala:</strong> <input id="editAla" value="${i.alaNome}"><br>
         <strong>Estado de Saúde:</strong> <input id="editEstadoSaude" value="${i.estadoSaude}"><br>
         <strong>Medicamentos:</strong> <input id="editMedicamentos" value="${i.medicamentos}"><br>
         <strong>Exames:</strong> <input id="editExames" value="${i.exames}"><br>
-        <strong>Médica Plantonista:</strong> <input id="editMedica" value="${i.medica}"><br>
+        <strong>Médica Plantonista:</strong> <input id="editMedica" value="${i.medicaNome}"><br>
         <strong>Enfermeira Chefe:</strong> <input id="editEnfermeira" value="${i.enfermeira}"><br>
         <strong>Data/Hora de Início:</strong> <input id="editDataHora" type="datetime-local" value="${i.dataHora}"><br>
         <button onclick="salvarEdicao()">Salvar</button>
@@ -101,15 +101,12 @@ function abrirFormAlta(index) {
 function confirmarAlta(index) {
     const dataAltaInput = document.getElementById('inputDataAlta').value;
     let dataAltaFormatada = '';
-    if (dataAltaInput) {
-        const d = new Date(dataAltaInput);
-        dataAltaFormatada = `${d.toLocaleDateString()} ${d.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-    } else {
+    if (!dataAltaInput) {
         const now = new Date();
-        dataAltaFormatada = `${now.toLocaleDateString()} ${now.toLocaleTimeString([], {hour: '2-digit', minute:'2-digit'})}`;
-    }
+        dataAltaFormatada = now.toISOString().slice(0, 16);  
+    } 
     internacoes[index].status = 'encerrada';
-    internacoes[index].dataAlta = dataAltaFormatada;
+    internacoes[index].dataAlta = dataAltaInput;
     localStorage.setItem('Internacoes', JSON.stringify(internacoes));
     alert('Alta registrada com sucesso!');
     voltar();
