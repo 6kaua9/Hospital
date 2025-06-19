@@ -24,6 +24,7 @@ function salvarAla() {
         localStorage.setItem("Alas", JSON.stringify(cadastroAlas));
     }
     alert("Nova ala cadastrado com sucesso!");
+    document.getElementById("formAla").reset();
     renderizar();
 }
 

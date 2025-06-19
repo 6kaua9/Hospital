@@ -1,3 +1,16 @@
+(function() {
+    document.addEventListener('DOMContentLoaded', function() {
+        const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
+        // Apenas admin pode criar novos profissionais;
+        const niveisPermitidos = ['admin', '1'];
+        if (!usuarioLogado || !niveisPermitidos.includes(usuarioLogado.nivelAcesso)) {
+            alert('Apenas usuáros Administradores podem acessar esta página.');
+            window.location.href = 'TelaInicial.html';
+        }
+        window.nivelAcesso = usuarioLogado ? usuarioLogado.nivelAcesso : null;
+    });
+})();
+
 document.addEventListener('DOMContentLoaded', function() {
     const lista = document.getElementById('usuariosPendentes');
     let usuarios = [];
