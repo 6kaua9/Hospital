@@ -11,7 +11,7 @@
     });
 })();
 
-let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
+let cadastroPaciente = JSON.parse(localStorage.getItem("Pacientes"))
         function renderizar() {
             const ul = document.getElementById("listaCadastros");
             ul.innerHTML = "";
@@ -125,7 +125,7 @@ let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros"))
                 // Remove o paciente do array
                 cadastroPaciente.splice(pacienteAtualIndex, 1);
                 // Atualiza o localStorage
-                localStorage.setItem("cadastros", JSON.stringify(cadastroPaciente));
+                localStorage.setItem("Pacientes", JSON.stringify(cadastroPaciente));
                 // Volta para a lista e atualiza a tela
                 voltar();
                 renderizar();

@@ -8,7 +8,7 @@ function gerarRelatorioPorPeriodo() {
   }
 
   const internacoes = JSON.parse(localStorage.getItem("Internacoes")) || [];
-  const pacientes = JSON.parse(localStorage.getItem("cadastros")) || [];
+  const pacientes = JSON.parse(localStorage.getItem("Pacientes")) || [];
 
   const relatorio = internacoes.filter(i => {
     const dataInternacao = new Date(i.dataHora);

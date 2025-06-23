@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
   const internacoes = JSON.parse(localStorage.getItem("Internacoes")) || [];
-  const pacientes = JSON.parse(localStorage.getItem("cadastros")) || [];
+  const pacientes = JSON.parse(localStorage.getItem("Pacientes")) || [];
   const alas = JSON.parse(localStorage.getItem("Alas")) || [];
 
   const ativas = internacoes.filter(i => i.status === 'ativa');

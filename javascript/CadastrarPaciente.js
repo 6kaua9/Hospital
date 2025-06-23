@@ -33,7 +33,7 @@ document.getElementById("idade").addEventListener("change", function(){
             planoSaude.style.display="none";
         }
     })
-let cadastroPaciente = JSON.parse(localStorage.getItem("cadastros")) || [];
+let cadastroPaciente = JSON.parse(localStorage.getItem("Pacientes")) || [];
 
 function salvar(){
     const nome = document.getElementById("nome").value;
@@ -74,7 +74,7 @@ function salvar(){
             historico,
             queixa
         });
-        localStorage.setItem("cadastros", JSON.stringify(cadastroPaciente));
+        localStorage.setItem("Pacientes", JSON.stringify(cadastroPaciente));
     }
     alert("paciente cadastrado com sucesso!");
     renderizar();

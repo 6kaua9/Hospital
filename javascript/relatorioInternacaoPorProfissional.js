@@ -14,7 +14,7 @@ function gerarRelatorioPorProfissional() {
   const profissionalIdSelecionado = document.getElementById("profissionalSelect").value;
 
   const internacoes = JSON.parse(localStorage.getItem("Internacoes")) || [];
-  const pacientes = JSON.parse(localStorage.getItem("cadastros")) || [];
+  const pacientes = JSON.parse(localStorage.getItem("Pacientes")) || [];
   const profissionais = JSON.parse(localStorage.getItem("Profissionais")) || [];
 
   const profissionalSelecionado = profissionais.find(p => (p.id || p.matricula || p.nome) == profissionalIdSelecionado);
