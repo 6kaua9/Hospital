@@ -1,0 +1,1 @@
+Sistema Hospitalar criado por Kauã, Guilherme e Kayan para gerenciamento de cadastros de profissionais médicos, paciêntes, internações, alas, cadastros de usuário dentro do sistema e emissão de relatórios.
