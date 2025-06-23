@@ -77,23 +77,7 @@ function salvar(){
         localStorage.setItem("Pacientes", JSON.stringify(cadastroPaciente));
     }
     alert("paciente cadastrado com sucesso!");
-    renderizar();
-}
-
-function renderizar() {
-    const ul = document.getElementById("listaCadastros");
-    if (!ul) return;
-    ul.innerHTML = "";
-    cadastroPaciente.forEach((item) => {
-        const li = document.createElement("li");
-        // Exibe endereço formatado se existir
-        let enderecoStr = "";
-        if (item.endereco) {
-            enderecoStr = `${item.endereco.rua || ''}, Nº ${item.endereco.numeroRua || ''}, ${item.endereco.bairro || ''}, ${item.endereco.cidade || ''} - ${item.endereco.estado || ''}`;
-        }
-        li.textContent = `${item.nome} | ${item.documento} | ${item.idade} anos | ${enderecoStr}`;
-        ul.appendChild(li);
-    });
+    document.getElementById("registroPaciente").reset();   
 }
 
     window.onload = renderizar;

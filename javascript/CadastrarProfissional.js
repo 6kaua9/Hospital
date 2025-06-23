@@ -28,7 +28,6 @@ function salvar(){
             const funçao = document.getElementById("funçao").value;
             const matricula= document.getElementById("matricula").value;
             const cargo= document.getElementById("cargo").value;
-            const nivelAcesso = document.getElementById("nivelAcesso").value;
             const id = Date.now();
             if(funçao === 'medico' || funçao === 'enfermeiro') {
                 if(!matricula) {
@@ -36,7 +35,7 @@ function salvar(){
                     return;
                 }
             }
-            if(nome && documento && idade && rua && numeroRua && bairro && cidade && estado && telefone && funçao && (funçao === 'medico' || funçao === 'enfermeiro' ? matricula : true) && cargo && nivelAcesso){
+            if(nome && documento && idade && rua && numeroRua && bairro && cidade && estado && telefone && funçao && (funçao === 'medico' || funçao === 'enfermeiro' ? matricula : true) && cargo){
                 cadastroProfissional.push({
                     id,
                     nome,
@@ -52,12 +51,12 @@ function salvar(){
                     telefone,
                     funçao,
                     matricula: (funçao === 'medico' || funçao === 'enfermeiro') ? matricula : 'Sem Matricula',
-                    cargo,
-                    nivelAcesso
+                    cargo
                 });
                 localStorage.setItem("Profissionais", JSON.stringify(cadastroProfissional));
             }
             alert("Profissional cadastrado com sucesso!");
+            document.getElementById("registroProfissional").reset();
         }
 
     function renderizar() {
@@ -74,21 +73,6 @@ function salvar(){
             ul.appendChild(li);
         });
     }
-
-    window.onload = renderizar;
-
-    // Restrições de acesso por nível de usuário
-    (function() {
-        document.addEventListener('DOMContentLoaded', function() {
-            const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
-            // Apenas admin, medico, enfermeira_chefe podem acessar
-            const niveisPermitidos = ['admin', 'medico', 'enfermeira_chefe'];
-            if (!usuarioLogado || !niveisPermitidos.includes(usuarioLogado.nivelAcesso)) {
-                alert('Você não tem permissão para acessar esta página.');
-                window.location.href = 'TelaInicial.html';
-            }
-        });
-    })();
 
     document.addEventListener('DOMContentLoaded', function() {
         const selectFuncao = document.getElementById('funçao');
@@ -108,19 +92,5 @@ function salvar(){
         }
     });
 
-//pop up descrição niveis usuarios
-document.addEventListener('DOMContentLoaded', function() {
-            const btnInfo = document.getElementById('btnInfoNivel');
-            const popup = document.getElementById('popupNivelInfo');
-            if(btnInfo && popup) {
-                btnInfo.addEventListener('click', function(e) {
-                    e.stopPropagation();
-                    popup.style.display = popup.style.display === 'block' ? 'none' : 'block';
-                });
-                document.addEventListener('click', function(e) {
-                    if (popup.style.display === 'block' && !popup.contains(e.target) && e.target !== btnInfo) {
-                        popup.style.display = 'none';
-                    }
-                });
-            }
-});
+    window.onload = renderizar;
+

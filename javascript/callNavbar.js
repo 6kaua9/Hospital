@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", function() {
         .then(data => {
             document.getElementById('navbar').innerHTML = data;
 
-            const popups = ['Pacientes', 'Profissionais', 'Alas', 'Internacoes', 'Relatorios'];
+            const popups = ['Pacientes', 'Profissionais', 'Alas', 'Internacoes', 'Relatorios', 'Configuracoes'];
 
             popups.forEach(popup => {
                 const btn = document.getElementById(`btn${popup}`);
@@ -68,7 +68,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 userIcon.innerHTML = '👤 Usuário';
             }
 
-         // Controle de acesso por nível de usuário ainda nao esta funcionando, consertar
+         /* Controle de acesso antigo. Testar se ainda é necessario ou aproveitavel
             function aplicarPermissoesNavbar(nivel) {
                 // Exemplo de bloqueio de botões/popups
                 // Admin: tudo liberado
@@ -123,7 +123,7 @@ document.addEventListener("DOMContentLoaded", function() {
                 const usuarioLogado = JSON.parse(localStorage.getItem('usuarioLogado'));
                 nivelAcesso = usuarioLogado && usuarioLogado.nivelAcesso ? usuarioLogado.nivelAcesso : null;
             } catch (e) {}
-            if (nivelAcesso) aplicarPermissoesNavbar(nivelAcesso);
+            if (nivelAcesso) aplicarPermissoesNavbar(nivelAcesso);*/
 
         });
 });

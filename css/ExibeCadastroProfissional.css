@@ -79,7 +79,7 @@ button:hover {
     background: #174ea6;
 }
 
-input[type="text"], input[type="number"], select, textarea {
+input{
     width: 95%;
     padding: 8px 10px;
     margin: 6px 0 16px 0;

@@ -75,32 +75,6 @@
                 <input type="text" id="cargo" placeholder="cargo">
             </div>
             <div class="linha"></div>
-        <div class="input-box" style="position: relative; display: flex; align-items: center; gap: 8px;">
-            <select id="nivelAcesso" required>
-                <option value="">Selecione o nível de acesso</option>
-                <option value="1">Nível 1</option>
-                <option value="2">Nível 2</option>
-                <option value="3">Nível 3</option>
-                <option value="4">Nível 4</option>
-                <option value="5">Nível 5</option>
-                <option value="6">Nível 6</option>
-            </select>
-            <button type="button" id="btnInfoNivel" title="Sobre os níveis de acesso">
-                <span style="font-weight: bold; color: #007bff;">?</span>
-            </button>
-        </div>
-
-        <div id="popupNivelInfo" style="display:none;">
-            <strong>Níveis de acesso:</strong>
-            <ul style="margin: 8px 0 0 16px; padding: 0;">
-                <li><b>Nível 1</b>: Administrador - Gerencia usuários e valida cadastros.</li>
-                <li><b>Nível 2</b>: Médico(a) - Acesso total a pacientes e internações.</li>
-                <li><b>Nível 3</b>: Enfermeiro(a) Chefe - Gerencia alas e equipe de enfermagem.</li>
-                <li><b>Nível 4</b>: Enfermeiro(a) - Visualiza e atualiza informações de pacientes.</li>
-                <li><b>Nível 5</b>: Recepcionista - Realiza cadastros e consultas básicas.</li>
-                <li><b>Nível 6</b>: Usuário Comum - Acesso restrito, apenas visualização.</li>
-            </ul>
-        </div>
         <button type="button" onclick="salvar()">Salvar</button>
     </form>
 
