@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastrar Alas</title>
+    <link rel="stylesheet" href="../cadastroAlas/CadastrarAlas.css">
+    <link rel="stylesheet" href="../outros/TelaInicial.css">
+</head>
+<body>
+    <header id="navbar">
+    <!-- Onde a navBar será inserida dinamicamente-->>
+    </header>
+    <div id="navbar"></div>
+    <section>
+        <form id="formAla">
+            <h2>Cadastrar Ala</h2>
+            <div class="linha">
+                <div class="campo">
+                    <label for="nomeAla">Nome da Ala:</label>
+                    <input type="text" id="nomeAla" placeholder="Ex: Ala A, Ginecologia 1" required>
+                </div>
+            </div>
+            <div class="linha">
+                <div class="campo">
+                    <label for="especialidade">Especialidade Médica:</label>
+                    <input type="text" id="especialidade" placeholder="Ex: Ortopedia, Cardiologia" required>
+                </div>
+            </div>
+            <div class="linha">
+                <div class="campo">
+                    <label for="sexo">Sexo Atendido:</label>
+                    <select id="sexo" required>
+                        <option value="">Selecione</option>
+                        <option value="Feminino">Feminino</option>
+                        <option value="Masculino">Masculino</option>
+                    </select>
+                </div>
+            </div>
+            <div class="linha">
+                <div class="campo">
+                    <label for="capacidade">Capacidade (opcional):</label>
+                    <input type="number" id="capacidade" placeholder="Número máximo de pacientes">
+                </div>
+            </div>
+            <button type="button" onclick="salvarAla()">Salvar</button>
+        </form>
+    </section>
+    <script src="../outros/callNavbar.js"></script>
+    <script src="../cadastroAlas/CadastrarAlas.js"></script>
+</body>
+</html>

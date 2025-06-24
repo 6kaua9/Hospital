@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ver Cadastro Paciente</title>
+    <link rel="stylesheet" href="../exibeCadastroPaciente/ExibeCadastroPaciente.css">
+    <link rel="stylesheet" href="../outros/TelaInicial.css">
+</head>
+<style>
+#paciente{
+    display: none;
+}
+
+</style>
+<body>
+    <header id="navbar">
+
+    </header>
+    <section id="Lista">
+    <ul id="listaCadastros"></ul>
+    </section>
+
+    <section id="paciente">
+        <h2>Detalhes do Paciente</h2>
+        <p id="detalhesPaciente"></p>
+        <button onclick="voltar()">Voltar</button>
+        <button onclick="editarDetalhes()">Editar</button>
+        <button onclick="excluir()">Excluir</button>
+    </section>
+
+    <script src="../exibeCadastroPaciente/ExibeCadastroPaciente.js"></script>
+    <script src="../outros/callNavbar.js"></script>
+</body>
+</html>

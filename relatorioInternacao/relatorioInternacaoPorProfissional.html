@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internações por Profssional</title>
+    <link rel="stylesheet" href="../relatorioInternacao/relatorioInternacaoPorProfissional.css">
+    <link rel="stylesheet" href="../outros/TelaInicial.css">
+</head>
+<body>
+    <header id="navbar">
+    </header>
+    <div class="cabeca">
+        <h1>Relatório de Internações por Profissional</h1>
+
+    <label for="profissionalSelect">Selecione o Profissional:</label>
+    <select id="profissionalSelect"></select>
+
+    <button onclick="gerarRelatorioPorProfissional()">Gerar Relatório</button>
+    </div>
+    
+    <div id="relatorioProfissional" style="margin-top: 20px;"></div>
+
+</body>
+<script src="../relatorioInternacao/relatorioInternacaoPorProfissional.js"></script>
+<script src="../outros/callNavbar.js"></script>
+</html>

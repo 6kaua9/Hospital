@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Exibir Alas</title>
+    <link rel="stylesheet" href="../ExibeAlas/ExibeAlas.css">
+    <link rel="stylesheet" href="../outros/TelaInicial.css">
+</head>
+<body>
+    <header id="navbar">
+    <!-- Onde a navBar será inserida dinamicamente-->>
+    </header>
+    <section id="Lista">
+        <ul id="listaAlas"></ul>
+    </section>
+    <section id="ala" style="display:none;">
+        <h2>Detalhes da Ala</h2>
+        <p id="detalhesAla"></p>
+        <button onclick="voltar()">Voltar</button>
+        <button onclick="editarDetalhes()">Editar</button>
+        <button onclick="excluir()">Excluir</button>
+    </section>
+    <script src="../ExibeAlas/ExibeAlas.js"></script>
+    <script src="../outros/callNavbar.js"></script>
+</body>
+</html>

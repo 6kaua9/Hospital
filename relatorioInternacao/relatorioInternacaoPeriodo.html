@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Internações por período</title>
+    <link rel="stylesheet" href="../relatorioInternacao/relatorioInternacaoPeriodo.css">
+    <link rel="stylesheet" href="../outros/TelaInicial.css">
+</head>
+<body>
+    <header id="navbar">
+    </header>
+    <div class="cabeca">
+        <h1>Relatório de Internações por Período</h1>
+
+        <label for="dataInicio">Data de Início:</label>
+        <input type="datetime-local" id="dataInicio">
+
+        <label for="dataFim">Data de Fim:</label>
+        <input type="datetime-local" id="dataFim">
+
+        <button onclick="gerarRelatorioPorPeriodo()">Gerar Relatório</button>
+    </div>
+    
+
+    <div id="relatorioPeriodo" style="margin-top: 20px;"></div>
+
+</body>
+<script src="../relatorioInternacao/relatorioInternacaoPeriodo.js"></script>
+<script src="../outros/callNavbar.js"></script>
+</html>

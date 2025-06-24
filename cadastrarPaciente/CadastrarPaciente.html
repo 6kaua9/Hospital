@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro de Paciente</title>
+    <link rel="stylesheet" href="../cadastrarPaciente/CadastrarPaciente.css">
+    <link rel="stylesheet" href="../outros/TelaInicial.css">
+</head>
+<body>
+    <header id="navbar">
+
+    </header>
+    
+    <form id="regristroPaciente">
+        <h2>Cadastro de Paciente</h2>
+        <div class="linha">
+            <div class="campo">
+                <label for="nome">Nome:</label>
+                <input type="text" id="nome" placeholder="Nome" required>
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label for="documento">RG ou CPF:</label>
+                <input type="number" id="documento" placeholder="RG ou CPF" required>
+            </div>
+            <div class="campo">
+                <label for="idade">Idade:</label>
+                <input type="number" id="idade" placeholder="Idade" required>
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label for="sexo">Sexo:</label>
+                <select id="sexo" required>
+                    <option value="">Selecione</option>
+                    <option value="Feminino">Feminino</option>
+                    <option value="Masculino">Masculino</option>
+                    <option value="Outro">Outro</option>
+                </select>
+            </div>
+        </div>
+        <div class="responsavel campo">
+                <label>Nome do responsavel</label> <br>
+                <input type="text" id="nomeResponsavel" placeholder="nome do responsavel">
+            </div>
+        <div class="linha">
+            <div class="campo">
+                <label for="rua">Rua:</label>
+                <input type="text" id="rua" placeholder="Rua">
+            </div>
+            <div class="campo">
+                <label for="numeroRua">Nº Rua:</label>
+                <input type="text" id="numeroRua" placeholder="Número">
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label for="bairro">Bairro:</label>
+                <input type="text" id="bairro" placeholder="Bairro">
+            </div>
+            <div class="campo">
+                <label for="cidade">Cidade:</label>
+                <input type="text" id="cidade" placeholder="Cidade">
+            </div>
+            <div class="campo">
+                <label for="estado">Estado:</label>
+                <input type="text" id="estado" placeholder="Estado">
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo">
+                <label for="Telefone">Telefone:</label>
+                <input type="text" id="Telefone" class="telefone" placeholder="Número de Telefone">
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo" style="flex:1;">
+                <label for="planos">Planos de Saúde:</label>
+                <select id="planos">
+                    <option value="SUS">SUS</option>
+                    <option value="planoDeSaude">Plano de Saúde</option>
+                </select>
+                
+                <div class="planoSaude" style="display: none">
+                    <label for="nomePlano">Nome do plano: <br>
+                        <input type="text" id="nomePlano" placeholder="Nome do Plano">
+                    </label><br>
+                    <label for="numeroPlano">Número do plano <br>
+                        <input type="number" id="numeroPlano" placeholder="Número do plano"> 
+                    </label>
+                </div>
+                
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo" style="flex:1;">
+                <label for="historico">Histórico Hospitalar:</label>
+                <textarea id="historico" placeholder="Descreva o histórico..."></textarea>
+            </div>
+        </div>
+        <div class="linha">
+            <div class="campo" style="flex:1;">
+                <label for="queixa">Queixa Hospitalar:</label>
+                <textarea id="queixa" placeholder="Descreva a queixa..."></textarea>
+            </div>
+        </div>
+        <button type="button" onclick="salvar()">Salvar</button>
+    </form>
+
+<script src="../cadastrarPaciente/CadastrarPaciente.js"></script>
+<script src="../outros/callNavbar.js"></script>
+</body>
+</html>

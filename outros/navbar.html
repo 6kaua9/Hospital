@@ -1,0 +1,81 @@
+<head>
+    <link rel="stylesheet" href="../outros/Navbar.css">
+</head>
+    <div class="wrapper">
+
+        <div class="header-content">
+            <h1>🏥 Sistema Hospitalar</h1>
+            <span class="user-icon" id="userIcon" style="cursor:pointer;">👤 User Null</span>
+        </div>
+        <nav class="navbar">
+            <button onclick="window.location.href='../outros/TelaInicial.html'">Início</button>
+            <button id="btnProfissionais">Profissionais</button>
+            <button id="btnPacientes">Pacientes</button>
+            <button id="btnInternacoes">Internações</button>
+            <button id="btnAlas">Alas</button>
+            <button id="btnRelatorios">Relatórios</button>
+            <button id="btnConfiguracoes">Configurações</button>
+        </nav>
+
+    </div>
+    
+       <div id="popupPacientes" class="popup-pacientes" style="display:none;">
+        <div class="popup-content">
+            <h3>Pacientes</h3>
+            <button onclick="window.location.href='../cadastrarPaciente/CadastrarPaciente.html'">Cadastrar Paciente</button>
+            <button onclick="window.location.href='../exibeCadastroPaciente/ExibeCadastroPaciente.html'">Ver Pacientes Cadastrados</button>
+            <span class="close-popup" onclick="fecharPopupPacientes()">&times;</span>
+        </div>
+    </div>
+    <div id="popupProfissionais" class="popup-profissionais" style="display:none;">
+        <div class="popup-content">
+            <h3>Profissionais</h3>
+            <button onclick="window.location.href='../cadastrarProfissional/CadastrarProfissional.html'">Cadastrar Profissional</button>
+            <button onclick="window.location.href='../ExibeCadastroProfissional/ExibeCadastroProfissional.html'">Ver Profissionais Cadastrados</button>
+            <span class="close-popup" onclick="fecharPopupProfissionais()">&times;</span>
+        </div>
+    </div>
+    <div id="popupAlas" class="popup-alas" style="display:none;">
+        <div class="popup-content">
+            <h3>Alas</h3>
+            <button onclick="window.location.href='../cadastroAlas/CadastrarAlas.html'">Cadastrar Alas</button>
+            <button onclick="window.location.href='../ExibeAlas/ExibeAlas.html'">Ver Alas Cadastradas</button>
+            <span class="close-popup" onclick="fecharPopupAlas()">&times;</span>
+        </div>
+    </div>   
+    <div id="popupInternacoes" class="popup-internacoes" style="display:none;">
+        <div class="popup-content">
+            <h3>Internações</h3>
+            <button onclick="window.location.href='../cadastrarInternacao/CadastrarInternacao.html'">Registrar Internação</button>
+            <button onclick="window.location.href='../exibeInternacao/ExibeInternacao.html'">Vizualizar Internações</button>
+            <span class="close-popup" onclick="fecharPopupInternacoes()">&times;</span>
+        </div>
+    </div>
+
+    <div id="popupRelatorios" class="popup-relatorios" style="display:none;">
+        <div class="popup-content">
+            <h3>Relatorios</h3>
+            <button onclick="window.location.href='../relatorioInternacao/relatorioPacientePorAla.html'">Pacientes por Ala</button>
+            <button onclick="window.location.href='../relatorioInternacao/relatorioInternacaoAtiva.html'">Internações Ativas</button>
+            <button onclick="window.location.href='../relatorioInternacao/relatorioInternacaoPorProfissional.html'">Internações por Médico</button>
+            <button onclick="window.location.href='../relatorioInternacao/relatorioInternacaoPeriodo.html'">Internações por Período</button>
+            <span class="close-popup" onclick="fecharPopupRelatorios()">&times;</span>
+        </div>
+    </div>
+
+    <div id="popupLogoff" class="popup-logoff" style="display:none;">
+        <div class="popup-content-logoff">
+            <p>Deseja sair da conta?</p>
+            <button onclick="logoffUsuario()" class="btn-logoff">Sair</button>
+            <span class="close-popup-logoff" onclick="fecharPopupLogoff()">&times;</span>
+        </div>
+    </div>
+    
+    <div id="popupConfiguracoes" class="popup-configuracoes" style="display:none; position: absolute; top: 60px; right: 32px; z-index: 100;">
+        <div class="popup-content-configuracoes">
+            <h3>Configurações</h3>
+            <button onclick="window.location.href='../cadastrarUsuario/validarUsuarios.html'">Validar Usuários</button>
+            <span class="close-popup-configuracoes" onclick="fecharPopupConfiguracoes()">&times;</span>
+        </div>
+    </div>
+
